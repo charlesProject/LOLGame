@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ServerNames {
-	public static final Map<Integer, String> SERVER_MAP = new HashMap<>();
+	public static final Map<Integer, String> SERVER_MAP = new HashMap<Integer,String>();
     static {
         SERVER_MAP.put(1,"艾欧尼亚");
         SERVER_MAP.put(3,"祖安");
