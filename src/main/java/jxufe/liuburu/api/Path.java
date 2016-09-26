@@ -7,13 +7,9 @@ public class Path {
 	 */
 	public static final String USER_AREA_PATH = "http://api.pallas.tgp.qq.com/core/search_player";
 	/**
-	 * 用户区图标查询接口
-	 * http://lolapi.games-cube.com/GetUserIcon?iconid={iconid}
+	 * 用户头像
+	 *http://cdn.tgp.qq.com/lol/images/resources/usericon/24.png
 	 */
-	public static final String USER_ICON_PATH = "http://lolapi.games-cube.com/GetUserIcon";
-	/**
-	 * 大区名称查询接口
-	 * http://lolapi.games-cube.com/GetAreaName?id={id}
-	 */
-	public static final String AREA_NAME_PATH = "http://lolapi.games-cube.com/GetAreaName";
+	public static final String USER_ICON_PATH = "http://cdn.tgp.qq.com/lol/images/resources/usericon/";
+	
 }

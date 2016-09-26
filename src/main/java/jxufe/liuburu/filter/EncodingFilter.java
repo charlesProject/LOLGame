@@ -26,6 +26,7 @@ public class EncodingFilter implements Filter {
 		request.setCharacterEncoding(CHAR_SET);
 		response.setCharacterEncoding(CHAR_SET);
 	//	response.setContentType(CONTENT_TYPE); 
+		System.out.println("过滤器正在工作。。。。");
 		chain.doFilter(request, response);
 	}
 

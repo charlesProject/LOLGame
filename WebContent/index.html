@@ -42,39 +42,8 @@
 					<!-- 搜索框代码 end -->
 					<!--搜索结果 begin-->
 					<div>
-						<ul class="list-group" style="display: block;">
-							<li class="list-group-item">
-								<div>
-									<div class="searchResultBox">
-										<img src="img/2.png" class="headIcon img-circle" />
-									</div>
-									<div class="searchResultBox">
-										<p class="sumName">卡卡罗特444</p>
-										<p>巨龙之巢</p>
-									</div>
-									<div class="searchResultBox">
-										<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
-									</div>
-									<div style="clear: both;"></div>
-								</div>
-
-							</li>
-							<li class="list-group-item">
-								<div>
-									<div class="searchResultBox">
-										<img src="img/2.png" class="headIcon img-circle" />
-									</div>
-									<div class="searchResultBox">
-										<p class="sumName">卡卡罗特444</p>
-										<p>巨龙之巢</p>
-									</div>
-									<div class="searchResultBox">
-										<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
-									</div>
-									<div style="clear: both;"></div>
-								</div>
-							</li>
-							<li class="list-group-item">
+						<ul class="list-group" style="display: block;" id="queryResult">
+							<li class="list-group-item" style="display: none">
 								<div>
 									<div class="searchResultBox">
 										<img src="img/2.png" class="headIcon img-circle" />
@@ -92,118 +61,121 @@
 						</ul>
 					</div>
 					<!--第1个模块begin-->
-					<div class="userInfo">
-						<h4 style="text-align: left;">个人信息</h4>
-						<div class="infoHead">
-							<div class="infoItem">
-								<img src="img/2.png" class="headIcon img-circle" />
-							</div>
-							<div class="infoItem" style="padding-top: 5px;font-size: 15px;color: darkblue; text-align: center;">
-								<p>卡卡罗特444 <span style="color: darkmagenta;">胜点:57</span></p>
-								<div>
-									<img class="areaLeavel" src="img/section_255.png" style="width: 30px; height: 30px;margin-left: 15px;" />
-									<div class="areaLeavel" style="margin-top: 0px; font-size: 12px; margin-left: 10px;">
-										<div class="btn-group">
-											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">游戏大区<span class="caret"></span></button>
-											<ul class="dropdown-menu" role="menu">
-												<li>
-													<a href="javascript:;">艾欧尼亚</a>
-												</li>
-												<li>
-													<a href="#">祖安</a>
-												</li>
-												<li>
-													<a href="#">黑色玫瑰</a>
-												</li>
-												<li>
-													<a href="#">巨龙之巢</a>
-												</li>
-											</ul>
+					<div class="queryResult">
+						<div class="userInfo">
+							<h4 style="text-align: left;">个人信息</h4>
+							<div class="infoHead">
+								<div class="infoItem">
+									<img src="img/2.png" class="headIcon img-circle" />
+								</div>
+								<div class="infoItem" style="padding-top: 5px;font-size: 15px;color: darkblue; text-align: center;">
+									<p>卡卡罗特444 <span style="color: darkmagenta;">胜点:57</span></p>
+									<div>
+										<img class="areaLeavel" src="img/section_255.png" style="width: 30px; height: 30px;margin-left: 15px;" />
+										<div class="areaLeavel" style="margin-top: 0px; font-size: 12px; margin-left: 10px;">
+											<div class="btn-group">
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">游戏大区<span class="caret"></span></button>
+												<ul class="dropdown-menu" role="menu">
+													<li>
+														<a href="javascript:;">艾欧尼亚</a>
+													</li>
+													<li>
+														<a href="#">祖安</a>
+													</li>
+													<li>
+														<a href="#">黑色玫瑰</a>
+													</li>
+													<li>
+														<a href="#">巨龙之巢</a>
+													</li>
+												</ul>
 
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="infoTable">
-							<table class="table table-striped table-bordered table-hover table-condensed">
-								<tr class="info">
-									<td>赞</td>
-									<td>278</td>
-								</tr>
-								<tr class="active">
-									<td>等级</td>
-									<td>30</td>
-								</tr>
-								<tr class="success">
-									<td>胜点</td>
-									<td>57</td>
-								</tr>
-								<tr class="danger">
-									<td>战斗力</td>
-									<td>10711</td>
-								</tr>
-								<tr class="danger">
-									<td>上赛季排名</td>
-									<td>511563</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<!--第1个模块end-->
-					<!--第2个模块begin-->
-					<div class="zhaopaiHero">
-						<h4 style="text-align: left;">招牌英雄</h4>
-						<div class="zhaopaiItem">
-							<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
-							<p>评分:11233</p>
-						</div>
-						<div class="zhaopaiItem">
-							<img src="img/Nautilus.png" class="img-circle" style="width: 65px;height:65px;" />
-							<p>评分:11233</p>
-						</div>
-						<div class="zhaopaiItem">
-							<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
-							<p>评分:11233</p>
-						</div>
-						<div class="zhaopaiItem">
-							<a href="javascript:;">更多>></a>
-						</div>
-						<div style="clear: both;"></div>
-					</div>
-					<!--第2个模块end-->
-					<!--第3个模块begin-->
-					<div class="recentBehave">
-						<h4 style="text-align: left;">近期荣誉</h4>
-						<div>
-							<div>
-								<div class="honorItem">
-									<img src="img/honor/mvp.png" style="width: 40px; margin-top: 17px;" />
-									<p>X120</p>
-								</div>
-								<div class="honorItem">
-									<img src="img/honor/hero_depth_04.png" class="heroHonorImg img-circle" />
-									<p>X123</p>
-								</div>
-								<div class="honorItem">
-									<img src="img/honor/hero_depth_01.png" class="heroHonorImg img-circle" />
-									<p>X123</p>
-								</div>
-								<div class="honorItem">
-									<img src="img/honor/hero_depth_02.png" class="heroHonorImg img-circle" />
-									<p>X123</p>
-								</div>
-								<div class="honorItem">
-									<img src="img/honor/hero_depth_03.png" class="heroHonorImg img-circle" />
-									<p>X123</p>
-								</div>
-
+							<div class="infoTable">
+								<table class="table table-striped table-bordered table-hover table-condensed">
+									<tr class="info">
+										<td>赞</td>
+										<td>278</td>
+									</tr>
+									<tr class="active">
+										<td>等级</td>
+										<td>30</td>
+									</tr>
+									<tr class="success">
+										<td>胜点</td>
+										<td>57</td>
+									</tr>
+									<tr class="danger">
+										<td>战斗力</td>
+										<td>10711</td>
+									</tr>
+									<tr class="danger">
+										<td>上赛季排名</td>
+										<td>511563</td>
+									</tr>
+								</table>
 							</div>
 						</div>
-						<div style="clear: both;"></div>
-						<div id="chart2" style="width: 250px; height: 200px;"></div>
+						<!--第1个模块end-->
+						<!--第2个模块begin-->
+						<div class="zhaopaiHero">
+							<h4 style="text-align: left;">招牌英雄</h4>
+							<div class="zhaopaiItem">
+								<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+								<p>评分:11233</p>
+							</div>
+							<div class="zhaopaiItem">
+								<img src="img/Nautilus.png" class="img-circle" style="width: 65px;height:65px;" />
+								<p>评分:11233</p>
+							</div>
+							<div class="zhaopaiItem">
+								<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+								<p>评分:11233</p>
+							</div>
+							<div class="zhaopaiItem">
+								<a href="javascript:;">更多>></a>
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+						<!--第2个模块end-->
+						<!--第3个模块begin-->
+						<div class="recentBehave">
+							<h4 style="text-align: left;">近期荣誉</h4>
+							<div>
+								<div>
+									<div class="honorItem">
+										<img src="img/honor/mvp.png" style="width: 40px; margin-top: 17px;" />
+										<p>X120</p>
+									</div>
+									<div class="honorItem">
+										<img src="img/honor/hero_depth_04.png" class="heroHonorImg img-circle" />
+										<p>X123</p>
+									</div>
+									<div class="honorItem">
+										<img src="img/honor/hero_depth_01.png" class="heroHonorImg img-circle" />
+										<p>X123</p>
+									</div>
+									<div class="honorItem">
+										<img src="img/honor/hero_depth_02.png" class="heroHonorImg img-circle" />
+										<p>X123</p>
+									</div>
+									<div class="honorItem">
+										<img src="img/honor/hero_depth_03.png" class="heroHonorImg img-circle" />
+										<p>X123</p>
+									</div>
+
+								</div>
+							</div>
+							<div style="clear: both;"></div>
+							<div id="chart2" style="width: 250px; height: 200px;"></div>
+						</div>
+						<!--第3个模块end-->
 					</div>
-					<!--第3个模块end-->
+
 					<!--搜索结果end-->
 				</div>
 				<div class="row col-md-9">
@@ -376,12 +348,24 @@
 							<!--其他拓展功能Begin-->
 							<div class="kitClass">
 								<ul>
-									<li><a href="#">我的皮肤</a></li>
-									<li><a href="#">本周周免</a></li>
-									<li><a href="#">荣誉截图</a></li>
-									<li><a href="#">成就英雄</a></li>
-									<li><a href="#">国服排行</a></li>
-									<li><a href="#">联系作者</a></li>
+									<li>
+										<a href="#">我的皮肤</a>
+									</li>
+									<li>
+										<a href="#">本周周免</a>
+									</li>
+									<li>
+										<a href="#">荣誉截图</a>
+									</li>
+									<li>
+										<a href="#">成就英雄</a>
+									</li>
+									<li>
+										<a href="#">国服排行</a>
+									</li>
+									<li>
+										<a href="#">联系作者</a>
+									</li>
 								</ul>
 							</div>
 							<hr />
@@ -555,43 +539,43 @@
 								</tr>
 							</table>
 							<!--失败方end-->
-							
+
 						</div>
 						<!--战机详情end-->
 					</div>
 					<!--LOL版本信息begin-->
-							<div class="copyright">
-								<ul>
-									<li>
-										<span class="copyright-text" dir="ltr">©2016&nbsp;Baidu</span>
-									</li>
-									<li>
-										<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>
-										<span class="split-line">|</span>
-									</li>
-									<li>
-										<a href="http://fanyi-pro.baidu.com/" target="_blank" class="foot-manual-link">百度人工翻译</a>
-										<span class="split-line">|</span>
-									</li>
-									<li>
-										<a href="http://api.fanyi.baidu.com/" target="_blank">百度翻译API</a>
-										<span class="split-line">|</span>
-									</li>
-									<li>
-										<a href="http://fanyi.baidu.com/static/webpage/agreement.html" target="_blank">翻译协议</a>
-										<span class="split-line">|</span>
-									</li>
-									<li>
-										<a href="http://tousu.baidu.com/fanyi/add" target="_blank">建议与反馈</a>
-										<span class="split-line">|</span>
-									</li>
-									<li>
-										<a href="http://help.baidu.com/question?prod_en=fanyi&amp;class=276&amp;id=1000317" target="_blank">帮助</a>
-									</li>
-								</ul>
-							</div>
-							
-							<!--LOL版本信息end-->
+					<div class="copyright">
+						<ul>
+							<li>
+								<span class="copyright-text" dir="ltr">©2016&nbsp;Baidu</span>
+							</li>
+							<li>
+								<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>
+								<span class="split-line">|</span>
+							</li>
+							<li>
+								<a href="http://fanyi-pro.baidu.com/" target="_blank" class="foot-manual-link">百度人工翻译</a>
+								<span class="split-line">|</span>
+							</li>
+							<li>
+								<a href="http://api.fanyi.baidu.com/" target="_blank">百度翻译API</a>
+								<span class="split-line">|</span>
+							</li>
+							<li>
+								<a href="http://fanyi.baidu.com/static/webpage/agreement.html" target="_blank">翻译协议</a>
+								<span class="split-line">|</span>
+							</li>
+							<li>
+								<a href="http://tousu.baidu.com/fanyi/add" target="_blank">建议与反馈</a>
+								<span class="split-line">|</span>
+							</li>
+							<li>
+								<a href="http://help.baidu.com/question?prod_en=fanyi&amp;class=276&amp;id=1000317" target="_blank">帮助</a>
+							</li>
+						</ul>
+					</div>
+
+					<!--LOL版本信息end-->
 				</div>
 			</div>
 		</div>

@@ -3,10 +3,13 @@ function userAreaQuery() {
 		var gamerName = $("#gamerName").val();
 		$.ajax({
 			type: "get",
-			url: "http://api.pallas.tgp.qq.com/core/search_player?key=" + gamerName,
-			dataType: "jsonp",
+			url: "user/area",
+			data:{
+				"key":gamerName
+			},
 			success: function(data) {
 				console.log(data);
+				addQueryUserArea(data);
 			}
 		});
 	})

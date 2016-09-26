@@ -15,9 +15,14 @@
 	margin-left: 12px;
 }
 
+.searchResultBoxLast{
+	float:right	;
+	margin-right: 10px
+}
+
 .headIcon {
-	height: 50px;
-	width: 50px;
+	height: 45px;
+	width: 45px;
 }
 
 .areaP {
@@ -87,11 +92,16 @@
 	height: 40px;
 }
 
+.queryResult{
+	display: none;
+}
+
 .topAdvertise {
 	background: orange;
 	margin-top: 10px;
 	height: 125px;
 }
+
 /*页面底部版权信息beign*/
 .copyright {
 	float: left;
