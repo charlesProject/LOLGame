@@ -1,38 +1,128 @@
-.westBox{
-}
+.westBox {}
 
-.centerBox{
-}
+.centerBox {}
 
-.eastBox{
+.eastBox {
 	font-size: 15px;
 	font-family: "微软雅黑";
 }
 
+
 /*搜索样式begin*/
-.searchResultBox{
+
+.searchResultBox {
 	float: left;
 	margin-left: 12px;
 }
-.headIcon{
+
+.headIcon {
 	height: 50px;
-	width: 60px;
+	width: 50px;
 }
-.areaP{
+
+.areaP {
 	margin-top: 10px;
 }
-.sumName{
+
+.sumName {
 	font-size: 12px;
 }
-.leavelImg{
+
+.leavelImg {
 	height: 25px;
 	width: 25px;
 }
+
+
 /*搜索样式end*/
-#gameList{
+
+#gameList {
 	margin-top: 30px;
 }
-.championIcon{
+
+.championIcon {
 	height: 32px;
 	width: 32px;
+}
+
+.infoItem {
+	float: left;
+}
+
+.userInfo {
+	border: 2px gray solid;
+	height: 250px;
+}
+
+.areaLeavel {
+	float: left;
+}
+
+.zhaopaiHero {
+	border: 2px gray solid;
+	margin-top: 10px;
+}
+
+.zhaopaiItem {
+	float: left;
+	margin-left: 5px;
+}
+
+.recentBehave {
+	border: 2px gray solid;
+	margin-top: 10px;
+}
+
+.honorClass {
+	float: left;
+}
+
+.honorItem {
+	float: left;
+	width: 50px;
+}
+
+.heroHonorImg {
+	width: 40px;
+	height: 40px;
+}
+
+.topAdvertise {
+	background: orange;
+	margin-top: 10px;
+	height: 125px;
+}
+/*页面底部版权信息beign*/
+.copyright {
+	float: left;
+	margin-left: 160px;
+	position: relative
+}
+
+.copyright li {
+	display: inline-block;
+	margin-left: 5px
+}
+
+.copyright li .split-line {
+	margin-left: 5px;
+	color: #c8c8c8;
+	font-size: 12px
+}
+
+.copyright-text {
+	color: #666
+}
+/*页面底部版权信息end*/
+.kitClass ul li{
+	list-style: none;
+	float: left;
+	margin-left: 10px;
+}
+
+.kitClass ul li a{
+	text-decoration: none;
+}
+.kitClass ul li a:hover{
+	color: red;
 }

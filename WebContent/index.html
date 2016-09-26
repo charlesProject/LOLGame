@@ -6,23 +6,28 @@
 		<title>LOL战绩查询--LBR</title>
 		<!--bootstrap导入begin-->
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<script type="text/javascript" src="js/jquery-3.1.0.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<!--bootstrap导入end-->
 		<link rel="stylesheet" href="css/search.css" />
 		<link rel="stylesheet" href="css/index.css" />
 		<!--分页组件-->
 		<link rel="stylesheet" href="css/pagination.css" />
-		<script type="text/javascript" src="js/jquery.pagination.js" ></script>
-		<!--导入DaiWan Api相关的js-->
-		<script type="text/javascript" src="js/daiwan_api.js" ></script>
-		
+		<script type="text/javascript" src="js/jquery.pagination.js"></script>
+
 		<!--导入本页面的js-->
-		<script type="text/javascript" src="js/userarea_query.js" ></script>
-		<script type="text/javascript" src="js/page.js" ></script>
-		<script type="text/javascript" src="js/index.js" ></script>
-		
-		
+		<script type="text/javascript" src="js/mine/userarea_query.js"></script>
+		<script type="text/javascript" src="js/mine/page.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<!--导入统计图相关-->
+		<script type="text/javascript" src="jqplot/jqplot.js"></script>
+		<script type="text/javascript" src="js/mine/chart.js"></script>
+		<!--Jquery cookie插件-->
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/mine/lol_cookie.js"></script>
+
+		<!--导入api结果回调函数-->
+		<script type="text/javascript" src="js/mine/callback/api_callback.js"></script>
 	</head>
 
 	<body>
@@ -36,388 +41,558 @@
 					</form>
 					<!-- 搜索框代码 end -->
 					<!--搜索结果 begin-->
-					<ul class="list-group">
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/2.png" class="headIcon img-circle" />
+					<div>
+						<ul class="list-group" style="display: block;">
+							<li class="list-group-item">
+								<div>
+									<div class="searchResultBox">
+										<img src="img/2.png" class="headIcon img-circle" />
+									</div>
+									<div class="searchResultBox">
+										<p class="sumName">卡卡罗特444</p>
+										<p>巨龙之巢</p>
+									</div>
+									<div class="searchResultBox">
+										<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
+									</div>
+									<div style="clear: both;"></div>
 								</div>
-								<div class="searchResultBox">
-									<p class="sumName">卡卡罗特444</p>
-									<p>巨龙之巢</p>
-								</div>
-								<div class="searchResultBox">
-									<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
-								</div>
-								<div style="clear: both;"></div>
-							</div>
 
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/2.png" class="headIcon img-circle" />
+							</li>
+							<li class="list-group-item">
+								<div>
+									<div class="searchResultBox">
+										<img src="img/2.png" class="headIcon img-circle" />
+									</div>
+									<div class="searchResultBox">
+										<p class="sumName">卡卡罗特444</p>
+										<p>巨龙之巢</p>
+									</div>
+									<div class="searchResultBox">
+										<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
+									</div>
+									<div style="clear: both;"></div>
 								</div>
-								<div class="searchResultBox">
-									<p class="sumName">卡卡罗特444</p>
-									<p>巨龙之巢</p>
+							</li>
+							<li class="list-group-item">
+								<div>
+									<div class="searchResultBox">
+										<img src="img/2.png" class="headIcon img-circle" />
+									</div>
+									<div class="searchResultBox">
+										<p class="sumName">卡卡罗特444</p>
+										<p>巨龙之巢</p>
+									</div>
+									<div class="searchResultBox">
+										<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
+									</div>
+									<div style="clear: both;"></div>
 								</div>
-								<div class="searchResultBox">
-									<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
-								</div>
-								<div style="clear: both;"></div>
+							</li>
+						</ul>
+					</div>
+					<!--第1个模块begin-->
+					<div class="userInfo">
+						<h4 style="text-align: left;">个人信息</h4>
+						<div class="infoHead">
+							<div class="infoItem">
+								<img src="img/2.png" class="headIcon img-circle" />
 							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/2.png" class="headIcon img-circle" />
+							<div class="infoItem" style="padding-top: 5px;font-size: 15px;color: darkblue; text-align: center;">
+								<p>卡卡罗特444 <span style="color: darkmagenta;">胜点:57</span></p>
+								<div>
+									<img class="areaLeavel" src="img/section_255.png" style="width: 30px; height: 30px;margin-left: 15px;" />
+									<div class="areaLeavel" style="margin-top: 0px; font-size: 12px; margin-left: 10px;">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">游戏大区<span class="caret"></span></button>
+											<ul class="dropdown-menu" role="menu">
+												<li>
+													<a href="javascript:;">艾欧尼亚</a>
+												</li>
+												<li>
+													<a href="#">祖安</a>
+												</li>
+												<li>
+													<a href="#">黑色玫瑰</a>
+												</li>
+												<li>
+													<a href="#">巨龙之巢</a>
+												</li>
+											</ul>
+
+										</div>
+									</div>
 								</div>
-								<div class="searchResultBox">
-									<p class="sumName">卡卡罗特444</p>
-									<p>巨龙之巢</p>
-								</div>
-								<div class="searchResultBox">
-									<p class="areaP"><img class="leavelImg" src="img/section_255.png" /><span class="badge">30</span></p>
-								</div>
-								<div style="clear: both;"></div>
 							</div>
-						</li>
-					</ul>
+						</div>
+						<div class="infoTable">
+							<table class="table table-striped table-bordered table-hover table-condensed">
+								<tr class="info">
+									<td>赞</td>
+									<td>278</td>
+								</tr>
+								<tr class="active">
+									<td>等级</td>
+									<td>30</td>
+								</tr>
+								<tr class="success">
+									<td>胜点</td>
+									<td>57</td>
+								</tr>
+								<tr class="danger">
+									<td>战斗力</td>
+									<td>10711</td>
+								</tr>
+								<tr class="danger">
+									<td>上赛季排名</td>
+									<td>511563</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!--第1个模块end-->
+					<!--第2个模块begin-->
+					<div class="zhaopaiHero">
+						<h4 style="text-align: left;">招牌英雄</h4>
+						<div class="zhaopaiItem">
+							<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+							<p>评分:11233</p>
+						</div>
+						<div class="zhaopaiItem">
+							<img src="img/Nautilus.png" class="img-circle" style="width: 65px;height:65px;" />
+							<p>评分:11233</p>
+						</div>
+						<div class="zhaopaiItem">
+							<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+							<p>评分:11233</p>
+						</div>
+						<div class="zhaopaiItem">
+							<a href="javascript:;">更多>></a>
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+					<!--第2个模块end-->
+					<!--第3个模块begin-->
+					<div class="recentBehave">
+						<h4 style="text-align: left;">近期荣誉</h4>
+						<div>
+							<div>
+								<div class="honorItem">
+									<img src="img/honor/mvp.png" style="width: 40px; margin-top: 17px;" />
+									<p>X120</p>
+								</div>
+								<div class="honorItem">
+									<img src="img/honor/hero_depth_04.png" class="heroHonorImg img-circle" />
+									<p>X123</p>
+								</div>
+								<div class="honorItem">
+									<img src="img/honor/hero_depth_01.png" class="heroHonorImg img-circle" />
+									<p>X123</p>
+								</div>
+								<div class="honorItem">
+									<img src="img/honor/hero_depth_02.png" class="heroHonorImg img-circle" />
+									<p>X123</p>
+								</div>
+								<div class="honorItem">
+									<img src="img/honor/hero_depth_03.png" class="heroHonorImg img-circle" />
+									<p>X123</p>
+								</div>
+
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+						<div id="chart2" style="width: 250px; height: 200px;"></div>
+					</div>
+					<!--第3个模块end-->
 					<!--搜索结果end-->
 				</div>
-				<!--战绩列表 begin-->
-				<div class="centerBox col-md-3" id="gameList">
-					<ul class="list-group">
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
+				<div class="row col-md-9">
+					<div class="topAdvertise">
+
+					</div>
+					<div class="leftMidBox">
+						<!--战绩列表 begin-->
+						<div class="centerBox col-md-5" id="gameList">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div>
+										<div class="searchResultBox">
+											<img src="img/Nautilus.png" class="championIcon img-circle" />
+										</div>
+										<div class="searchResultBox">
+											<p class="sumName">深海泰坦</p>
+											<p>胜利</p>
+										</div>
+										<div class="searchResultBox">
+											<p>2016-9-20</p>
+											<p>18:17:26</p>
+										</div>
+										<div class="searchResultBox">
+											<p>Carry</p>
+										</div>
+										<div style="clear: both;"></div>
+									</div>
+								</li>
+							</ul>
+							<div id="pagePluginBox"></div>
+						</div>
+						<!--战绩列表 end-->
+
+						<!--战绩详情begin-->
+						<div class="eastBox col-md-7">
+							<!--其他拓展功能Begin-->
+							<div class="kitClass">
+								<ul>
+									<li><a href="#">我的皮肤</a></li>
+									<li><a href="#">本周周免</a></li>
+									<li><a href="#">荣誉截图</a></li>
+									<li><a href="#">成就英雄</a></li>
+									<li><a href="#">国服排行</a></li>
+									<li><a href="#">联系作者</a></li>
+								</ul>
 							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
+							<hr />
+							<div style="clear: both;"></div>
+							<!--其他拓展功能End-->
+							<!--胜利方begin-->
+							<h4 style="text-align: left; margin-bottom: -25px; color: blue;">胜利方</h4>
+							<hr />
+							<table class="table table-striped table-bordered table-hover table-condensed">
+								<tr class="info">
+									<td>召唤师</td>
+									<td>贡献值</td>
+									<td>经济</td>
+									<td>KDA</td>
+									<td>出装</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+							</table>
+							<!--胜利方end-->
+
+							<!--失败方begin-->
+							<h4 style="text-align: left; margin-bottom: -25px; color: red;">失败方</h4>
+
+							<hr />
+							<table class="table table-striped table-bordered table-hover table-condensed">
+								<tr class="info">
+									<td>召唤师</td>
+									<td>贡献值</td>
+									<td>经济</td>
+									<td>KDA</td>
+									<td>出装</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+								<tr class="active">
+									<td><img src="img/Zilean.png" class="championIcon" /></td>
+									<td>6625</td>
+									<td>8177</td>
+									<td>24(1/1/7)</td>
+									<td colspan="3">
+										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3031.png" class="championIcon" />
+										<img src="img/3046.png" class="championIcon" />
+										<img src="img/3065.png" class="championIcon" />
+										<img src="img/3072.png" class="championIcon" />
+										<img src="img/3009.png" class="championIcon" />
+									</td>
+								</tr>
+							</table>
+							<!--失败方end-->
+							
+						</div>
+						<!--战机详情end-->
+					</div>
+					<!--LOL版本信息begin-->
+							<div class="copyright">
+								<ul>
+									<li>
+										<span class="copyright-text" dir="ltr">©2016&nbsp;Baidu</span>
+									</li>
+									<li>
+										<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>
+										<span class="split-line">|</span>
+									</li>
+									<li>
+										<a href="http://fanyi-pro.baidu.com/" target="_blank" class="foot-manual-link">百度人工翻译</a>
+										<span class="split-line">|</span>
+									</li>
+									<li>
+										<a href="http://api.fanyi.baidu.com/" target="_blank">百度翻译API</a>
+										<span class="split-line">|</span>
+									</li>
+									<li>
+										<a href="http://fanyi.baidu.com/static/webpage/agreement.html" target="_blank">翻译协议</a>
+										<span class="split-line">|</span>
+									</li>
+									<li>
+										<a href="http://tousu.baidu.com/fanyi/add" target="_blank">建议与反馈</a>
+										<span class="split-line">|</span>
+									</li>
+									<li>
+										<a href="http://help.baidu.com/question?prod_en=fanyi&amp;class=276&amp;id=1000317" target="_blank">帮助</a>
+									</li>
+								</ul>
 							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</li>
-						<li class="list-group-item">
-							<div>
-								<div class="searchResultBox">
-									<img src="img/Nautilus.png" class="championIcon img-circle" />
-								</div>
-								<div class="searchResultBox">
-									<p class="sumName">深海泰坦</p>
-									<p>胜利</p>
-								</div>
-								<div class="searchResultBox">
-									<p>2016-9-20</p>
-									<p>18:17:26</p>
-								</div>
-								<div class="searchResultBox">
-									<p>Carry</p>
-								</div>
-								<div style="clear: both;"></div>
-							</div>
-						</li>
-					</ul>
-					<div id="pagePluginBox"></div>
+							
+							<!--LOL版本信息end-->
 				</div>
-				<!--战绩列表 end-->
-
-				<!--战绩详情begin-->
-				<div class="eastBox col-md-6">
-					<!--胜利方begin-->
-					<h4 style="text-align: left; margin-bottom: -25px; color: blue;">胜利方</h4>
-					<hr />
-					<table class="table table-striped table-bordered table-hover table-condensed">
-						<tr class="info">
-							<td>召唤师</td>
-							<td>贡献值</td>
-							<td>经济</td>
-							<td>KDA</td>
-							<td>出装</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-					</table>
-					<!--胜利方end-->
-
-					<!--失败方begin-->
-					<h4 style="text-align: left; margin-bottom: -25px; color: red;">失败方</h4>
-
-					<hr />
-					<table class="table table-striped table-bordered table-hover table-condensed">
-						<tr class="info">
-							<td>召唤师</td>
-							<td>贡献值</td>
-							<td>经济</td>
-							<td>KDA</td>
-							<td>出装</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-						<tr class="active">
-							<td><img src="img/Zilean.png" class="championIcon" /></td>
-							<td>6625</td>
-							<td>8177</td>
-							<td>24(1/1/7)</td>
-							<td colspan="3">
-								<img src="img/3009.png" class="championIcon" />
-								<img src="img/3031.png" class="championIcon" />
-								<img src="img/3046.png" class="championIcon" />
-								<img src="img/3065.png" class="championIcon" />
-								<img src="img/3072.png" class="championIcon" />
-								<img src="img/3009.png" class="championIcon" />
-							</td>
-						</tr>
-					</table>
-					<!--失败方end-->
-				</div>
-				<!--战机详情end-->
 			</div>
 		</div>
 
