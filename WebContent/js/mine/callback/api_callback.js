@@ -1,9 +1,9 @@
 function addQueryUserArea(data){//设置查询结果
 	$("#queryResult").html("");
 	for(var i=0;i<data.data.length;i++){
-		console.log("qquin="+data.data[i].qquin);
+		//console.log("qquin="+data.data[i].qquin);
 		$("#queryResult").append(
-				"<li class='list-group-item'>"+
+				"<li class='list-group-item cursorClass queryResltLi' id='"+data.data[i].area_id+"_"+data.data[i].qquin+"'>"+
 		"<div>"+
 		"<div class='searchResultBox'>"+
 		"	<img src='img/2.png' class='headIcon img-circle' id='"+data.data[i].qquin+"Img' />"+
@@ -21,7 +21,7 @@ function addQueryUserArea(data){//设置查询结果
 		"");
 		updataUserIcon(data.data[i].qquin,data.data[i].icon_id);
 		updataUserArea(data.data[i].qquin,data.data[i].area_id);
-		updateUserTierIconAndName(data.data[i].qquin,data.data[i].tier,data.data[i].queue);
+		updateUserTierIconAndName(data.data[i].qquin+"Span",data.data[i].qquin+"Rank",data.data[i].tier,data.data[i].queue);
 	}
 }
 
@@ -49,7 +49,7 @@ function updataUserArea(p,area_id){//更新用户所在的大区
 		}
 	});
 }
-function updateUserTierIconAndName(qquin,tier,queue){//更新用户段位图标和图标名字
+function updateUserTierIconAndName(iconDom,rankDom,tier,queue){//更新用户段位图标和图标名字
 	$.ajax({
 		type: "get",
 		url: "user/rank",
@@ -58,9 +58,36 @@ function updateUserTierIconAndName(qquin,tier,queue){//更新用户段位图标�
 			"queue":queue
 		},
 		success: function(data) {
-			console.log("段位更新-->"+data.rank_pic);
-			$("#"+qquin+"Rank").attr("src",data.rank_pic);
-			$("#"+qquin+"Span").html(data.rank_name);
+			//console.log("段位更新-->"+data.rank_pic);
+			$("#"+iconDom).attr("src",data.rank_pic);
+			$("#"+rankDom).html(data.rank_name);
 		}
 	});
+}
+
+//更新用户的基本信息
+function updateBasicInfo(data){
+	console.log("update basic info....");
+	console.log(data);
+	$("#basicName").html(data.data.name);
+	$("#basicWinPoint").html("胜点"+data.data.win_point);
+	$("#basicPraiseNum").html(data.data.praise_num);
+	$("#basicDiscreditNum").html(data.data.discredit_num);
+	$("#basicLevel").html(data.data.level);
+	$("#basicWinPoint").html(data.data.win_point);
+	$("#basicPowerValue").html(data.data.power_value);
+	$("#basicRankLastBattle").html(data.data.rank_last_battle);
+	updateUserTierIconAndName(basicIcon,basicRank);
+}
+//更新用户的英雄排行榜
+function updateChampionTopInfo(data){
+	console.log("update champion top info....");
+	console.log(data);
+	
+}
+
+//更新用户的详细信息
+function updateDetailInfo(data){
+	console.log("update detail info....");
+	console.log(data);
 }

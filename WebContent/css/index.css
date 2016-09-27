@@ -7,6 +7,15 @@
 	font-family: "微软雅黑";
 }
 
+.cursorClass{
+	cursor: pointer;
+}
+.cursorClass:HOVER{
+	background-color: #F4F0F0;
+	
+}
+
+
 
 /*搜索样式begin*/
 
@@ -21,8 +30,8 @@
 }
 
 .headIcon {
-	height: 45px;
-	width: 45px;
+	height: 40px;
+	width: 40px;
 }
 
 .areaP {
@@ -34,8 +43,8 @@
 }
 
 .leavelImg {
-	height: 25px;
-	width: 25px;
+	height: 32px;
+	width: 32px;
 }
 
 
@@ -56,7 +65,7 @@
 
 .userInfo {
 	border: 2px gray solid;
-	height: 250px;
+	height: 240px;
 }
 
 .areaLeavel {
@@ -93,7 +102,7 @@
 }
 
 .queryResult{
-	display: none;
+	display: block;
 }
 
 .topAdvertise {

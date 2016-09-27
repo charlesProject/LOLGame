@@ -1,5 +1,6 @@
 function userAreaQuery() {
 	$("#submit").bind("click", function() { //绑定用户查询按钮
+		$("#queryResult").show();
 		var gamerName = $("#gamerName").val();
 		$.ajax({
 			type: "get",
@@ -8,8 +9,9 @@ function userAreaQuery() {
 				"key":gamerName
 			},
 			success: function(data) {
-				console.log(data);
+			//	console.log(data);
 				addQueryUserArea(data);
+				bindQueryResultEvent();//绑定查询结果点击事件
 			}
 		});
 	})
