@@ -1,6 +1,7 @@
-function plotChatLoad(){
-	var data = [[1],[6],[6],[7],[10]];
-	var data_max = 30; //Y轴最大刻度
+function plotChatLoad(recentGameData){
+//	var data = [[1],[6],[6],[7],[10]];
+	var data = [[recentGameData[0]],[recentGameData[1]],[recentGameData[2]],[recentGameData[3]],[recentGameData[4]]];
+	var data_max = 60; //Y轴最大刻度
 	var line_title = ["上单","打野","中单","ADC","辅助"]; //曲线名称
 	var y_label = ""; //Y轴标题
 	var x_label = ""; //X轴标题

@@ -65,7 +65,8 @@
 
 .userInfo {
 	border: 2px gray solid;
-	height: 240px;
+	height: 210px;
+	background: #FEFEFE;
 }
 
 .areaLeavel {
@@ -101,8 +102,8 @@
 	height: 40px;
 }
 
-.queryResult{
-	display: block;
+.queryResultBottom{
+	display: display;
 }
 
 .topAdvertise {

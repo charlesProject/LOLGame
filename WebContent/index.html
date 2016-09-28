@@ -44,7 +44,7 @@
 					<!-- 搜索框代码 end -->
 					<!--搜索结果 begin-->
 					<div>
-						<ul class="list-group" style="display: block;" id="queryResult">
+						<ul class="list-group" style="display: block;" id="queryResultList">
 							<li class="list-group-item" style="display: none">
 								<div>
 									<div class="searchResultBox">
@@ -63,7 +63,7 @@
 						</ul>
 					</div>
 					<!--第1个模块begin-->
-					<div class="queryResult">
+					<div class="queryResultBottom">
 						<div class="userInfo">
 							<h4 style="text-align: left;">个人信息</h4>
 							<div class="infoHead">
@@ -72,17 +72,17 @@
 								</div>
 								<div class="infoItem" style="padding-top: 5px;font-size: 15px;color: darkblue; text-align: center;">
 									<div>
-										<p style="float:left;" id="basicName">卡卡罗特444 </p>
-									<p style="float:left;margin-left: 25px" id="basicWinPoint">胜点57</p>
+										<p style="float:left;" id="basicName">XXXXXXX </p>
+									<p style="float:left;margin-left: 25px" id="basicWinPoint">胜点--</p>
 									<p style="clear:both;"></p>
 									</div>
 									
 									<div>
 										<img id="basicIcon" class="areaLeavel" src="img/section_255.png" style="width: 39px; height: 39px;margin-left: 15px;" />
 										<div class="areaLeavel" style="margin-top: 5px; font-size: 15px; margin-left: 20px;">
-											<span id="basicPraiseNum" class="glyphicon glyphicon-thumbs-up">480</span>
-											<span id="basicDiscreditNum" class="glyphicon glyphicon-thumbs-down">480</span>
-											<span id="basicRank" style="margin-left: 5px">黄金IV</span>
+											<span id="basicRank" style="margin-left: 5px">---</span>
+											<span id="basicPraiseNum" class="glyphicon glyphicon-thumbs-up">---</span>
+											<span id="basicDiscreditNum" class="glyphicon glyphicon-thumbs-down">---</span>
 										</div>
 									</div>
 								</div>
@@ -91,19 +91,15 @@
 								<table class="table table-striped table-bordered table-hover table-condensed">
 									<tr class="active">
 										<td>等级</td>
-										<td id="basicLevel">30</td>
-									</tr>
-									<tr class="active">
-										<td>胜点</td>
-										<td id="basicWinPoint">57</td>
+										<td id="basicLevel">--</td>
 									</tr>
 									<tr class="active">
 										<td>战斗力</td>
-										<td id="basicPowerValue">10711</td>
+										<td id="basicPowerValue">----</td>
 									</tr>
 									<tr class="active">
 										<td>上赛季排名</td>
-										<td id="basicRankLastBattle">511563</td>
+										<td id="basicRankLastBattle">------</td>
 									</tr>
 								</table>
 							</div>
@@ -113,16 +109,16 @@
 						<div class="zhaopaiHero">
 							<h4 style="text-align: left;">招牌英雄</h4>
 							<div class="zhaopaiItem">
-								<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
-								<p>评分:11233</p>
+								<img id="topChampionIcon2" src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+								<p id="topChampionName2">评分:-----</p>
 							</div>
 							<div class="zhaopaiItem">
-								<img src="img/Nautilus.png" class="img-circle" style="width: 65px;height:65px;" />
-								<p>评分:11233</p>
+								<img id="topChampionIcon1" src="img/Nautilus.png" class="img-circle" style="width: 65px;height:65px;" />
+								<p id="topChampionName1">评分:-----</p>
 							</div>
 							<div class="zhaopaiItem">
-								<img src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
-								<p>评分:11233</p>
+								<img id="topChampionIcon3" src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+								<p id="topChampionName3">评分:-----</p>
 							</div>
 							<div class="zhaopaiItem">
 								<a href="javascript:;">更多>></a>
@@ -137,29 +133,31 @@
 								<div>
 									<div class="honorItem">
 										<img src="img/honor/mvp.png" style="width: 40px; margin-top: 17px;" />
-										<p>X120</p>
+										<p  id="totalMVP">X120</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_04.png" class="heroHonorImg img-circle" />
-										<p>X123</p>
+										<p id="godLikeNum">X123</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_01.png" class="heroHonorImg img-circle" />
-										<p>X123</p>
+										<p id="pentaKills">X123</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_02.png" class="heroHonorImg img-circle" />
-										<p>X123</p>
+										<p id="quadraKills">X123</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_03.png" class="heroHonorImg img-circle" />
-										<p>X123</p>
+										<p id="tripleKills">X123</p>
 									</div>
 
 								</div>
 							</div>
 							<div style="clear: both;"></div>
-							<div id="chart2" style="width: 250px; height: 200px;"></div>
+							<div id="gameChart">
+								<div id="chart2" style="width: 250px; height: 200px;"></div>
+							</div>
 						</div>
 						<!--第3个模块end-->
 					</div>

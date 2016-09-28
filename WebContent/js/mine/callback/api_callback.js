@@ -1,8 +1,8 @@
 function addQueryUserArea(data){//设置查询结果
-	$("#queryResult").html("");
+	$("#queryResultList").html("");
 	for(var i=0;i<data.data.length;i++){
 		//console.log("qquin="+data.data[i].qquin);
-		$("#queryResult").append(
+		$("#queryResultList").append(
 				"<li class='list-group-item cursorClass queryResltLi' id='"+data.data[i].area_id+"_"+data.data[i].qquin+"'>"+
 		"<div>"+
 		"<div class='searchResultBox'>"+
@@ -49,7 +49,9 @@ function updataUserArea(p,area_id){//更新用户所在的大区
 		}
 	});
 }
-function updateUserTierIconAndName(iconDom,rankDom,tier,queue){//更新用户段位图标和图标名字
+function updateUserTierIconAndName(rankDom,iconDom,tier,queue){//更新用户段标和图标名字
+	
+	//console.log("更新Dom元素-->"+rankDom+"----"+iconDom);
 	$.ajax({
 		type: "get",
 		url: "user/rank",
@@ -58,36 +60,70 @@ function updateUserTierIconAndName(iconDom,rankDom,tier,queue){//更新用户段
 			"queue":queue
 		},
 		success: function(data) {
-			//console.log("段位更新-->"+data.rank_pic);
-			$("#"+iconDom).attr("src",data.rank_pic);
 			$("#"+rankDom).html(data.rank_name);
+			$("#"+iconDom).attr("src",data.rank_pic);
 		}
 	});
 }
 
 //更新用户的基本信息
 function updateBasicInfo(data){
-	console.log("update basic info....");
-	console.log(data);
+//	console.log("update basic info....");
+//	console.log(data);
 	$("#basicName").html(data.data.name);
 	$("#basicWinPoint").html("胜点"+data.data.win_point);
 	$("#basicPraiseNum").html(data.data.praise_num);
 	$("#basicDiscreditNum").html(data.data.discredit_num);
 	$("#basicLevel").html(data.data.level);
-	$("#basicWinPoint").html(data.data.win_point);
 	$("#basicPowerValue").html(data.data.power_value);
 	$("#basicRankLastBattle").html(data.data.rank_last_battle);
-	updateUserTierIconAndName(basicIcon,basicRank);
+	updateUserTierIconAndName("basicRank","basicIcon",data.data.tier,data.data.queue);
 }
 //更新用户的英雄排行榜
 function updateChampionTopInfo(data){
-	console.log("update champion top info....");
-	console.log(data);
-	
+//	console.log("update champion top info....");
+	//console.log(data);
+	for(var i=0;i<data.length;i++){
+		updateChampionIcon((i+1),data[i].champion_id);
+		$("#topChampionName"+(i+1)).html(data[i].used_exp_value);
+	}
 }
 
 //更新用户的详细信息
 function updateDetailInfo(data){
-	console.log("update detail info....");
-	console.log(data);
+//	console.log("update detail info....");
+//	console.log(data);
+	//更新上班部分mvp，5、4、3杀数据
+	$("#totalMVP").html("X"+(data.data[2].total_rank_mvps+data.data[2].total_match_mvps));
+	$("#godLikeNum").html("X"+data.data[1].god_like_num);
+	$("#pentaKills").html("X"+data.data[1].penta_kills);
+	$("#quadraKills").html("X"+data.data[1].quadra_kills);
+	$("#tripleKills").html("X"+data.data[1].triple_kills);
+	//更新下半部分图标数据
+	var recentGameData=new Array();
+	recentGameData[0] = data.data[0].items[0].recent_position.up_use_num;
+	recentGameData[1] = data.data[0].items[0].recent_position.jungle_use_num;//打野
+	recentGameData[2] = data.data[0].items[0].recent_position.mid_use_num;
+	recentGameData[3] = data.data[0].items[0].recent_position.adc_use_num;
+	recentGameData[4] = data.data[0].items[0].recent_position.aux_use_num;//辅助
+//	console.log("最近英雄使用次数");
+//	console.log(recentGameData);
+	//加载统计图数据
+	$("#gameChart").html("<div id='chart2' style='width: 250px; height: 200px;'></div>");
+	plotChatLoad(recentGameData);//加载统计图相关
+}
+
+//更新排行榜英雄Icon
+function updateChampionIcon(indexEle,champion_id){
+	$.ajax({
+		type: "get",
+		url: "champion/icon/"+champion_id,
+		data:{
+		},
+		success: function(data) {
+//			console.log("TOP3更新图标");
+//			console.log(data);
+			$("#topChampionIcon"+indexEle+"").attr("src",data.icon_url);
+		}
+	});
 }

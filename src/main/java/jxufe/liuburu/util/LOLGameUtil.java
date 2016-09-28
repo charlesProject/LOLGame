@@ -145,18 +145,6 @@ public class LOLGameUtil {
 		
 	}
 	
-	public static void main(String[] args) throws UnsupportedEncodingException {
-		//	System.out.println(getUserIcon(106));
-			//System.out.println(getUserTier(3, 1));
-			//System.out.println(getGameAreaName(26));
-	//		System.out.println(getUserBaseInfo("U11086490469144632336",26));
-	//		System.out.println(getUserBaseInfo("2914207499",26));
-		//	System.out.println(getUserDetailInfo("2914207499", 26));
-			JSONArray resultArray  = getChampionInfoByType("2914207499", 26,1);
-			System.out.println(resultArray);
-			System.out.println(resultArray.size());
-		}
-
 	/**
 	 * json数据装换成对象，并且对其排序，取出排名前三的数据
 	 */
@@ -276,4 +264,31 @@ public class LOLGameUtil {
 		}
 		return result;
 	}
+	
+	/**
+	 * 获取召唤师图片
+	 * @param champion_id
+	 * @return
+	 */
+	public static JSONObject getChampionIcon(int champion_id){
+		String icon_url =Path.CHAMPION_ICON_PATH+ "/"+champion_id+".png";
+		JSONObject result = new JSONObject();
+		result.put("champion_id", champion_id);
+		result.put("icon_url", icon_url);
+		return  result;
+	}
+
+	public static void main(String[] args) throws UnsupportedEncodingException {
+		//	System.out.println(getUserIcon(106));
+			//System.out.println(getUserTier(3, 1));
+			//System.out.println(getGameAreaName(26));
+	//		System.out.println(getUserBaseInfo("U11086490469144632336",26));
+	//		System.out.println(getUserBaseInfo("2914207499",26));
+		//	System.out.println(getUserDetailInfo("2914207499", 26));
+//			JSONArray resultArray  = getChampionInfoByType("2914207499", 26,1);
+//			System.out.println(resultArray);
+//			System.out.println(resultArray.size());
+		//	System.out.println(getChampionIcon(86));
+		System.out.println(getUserArea("卡卡罗特44"));
+		}
 }

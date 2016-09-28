@@ -11,7 +11,7 @@ public class Path {
 	 *http://cdn.tgp.qq.com/lol/images/resources/usericon/24.png
 	 */
 	public static final String USER_ICON_PATH = "http://cdn.tgp.qq.com/lol/images/resources/usericon/";
-	
+	/************************************第一分类*************************************************************/
 	/**
 	 * 用户基本信息
 	 * http://api.pallas.tgp.qq.com/core/get_user_hot_info?area_id=26&qquin=2914207499
@@ -29,6 +29,13 @@ public class Path {
 	 * http://api.pallas.tgp.qq.com/core/tcall?p=[[35,{"area_id":"26","qquin":"2914207499"}]]
 	 */
 	public static final String USER_CHAMPION_TOP= "http://api.pallas.tgp.qq.com/core/tcall";
+	
+	/*********************************第二分类****************************************************************/
+	/**
+	 * 获取召唤师的头像
+	 * http://cdn.tgp.qq.com/lol/images/resources/champions/133.png
+	 */
+	public static final String CHAMPION_ICON_PATH= "http://cdn.tgp.qq.com/lol/images/resources/champions";
 	
 	
 }

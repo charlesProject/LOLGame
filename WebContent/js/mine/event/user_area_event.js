@@ -5,9 +5,10 @@ function bindQueryResultEvent(){//查询结果点击事件
 		var qquin = params[1];
 		console.log("获得-->"+area_id+","+qquin);
 		basicAjax(qquin,area_id);//基本信息请求
-//		topChampionAjax(qquin,area_id,3);//选择top3请求
-//		detailAjax(qquin,area_id);//详细信息请求
-		$("#queryResult").hide();
+		topChampionAjax(qquin,area_id,3);//选择top3请求
+		detailAjax(qquin,area_id);//详细信息请求
+		$("#queryResultList").hide();
+		$(".queryResultBottom").show();
 	})
 }
 
@@ -27,11 +28,10 @@ function basicAjax(qquin,area_id){
 function topChampionAjax(qquin,area_id,type){
 	$.ajax({
 		type: "get",
-		url: "user/champion/",
+		url: "user/champion/"+type,
 		data:{
 			"qquin":qquin,
 			"area_id":area_id,
-			"type":type
 		},
 		success: function(data) {
 			updateChampionTopInfo(data);//更新用户基本信息
@@ -48,6 +48,7 @@ function detailAjax(qquin,area_id){
 		},
 		success: function(data) {
 			updateDetailInfo(data);//更新用户基本信息
+		
 		}
 	});
 }
