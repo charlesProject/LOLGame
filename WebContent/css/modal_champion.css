@@ -1,0 +1,36 @@
+.championCard {
+	width: 180px;
+	height: 200px;
+	background: #05273D;
+	float: left;
+	margin-left: 5px;
+	margin-top: 8px;
+}
+
+.cardLeft {
+	width: 80px;
+	height: 200px;
+	float: left;
+}
+
+.leftImg {
+	width: 100%;
+	height: 100%;
+	padding: 20px 5px 20px 5px;
+}
+
+.cardRight {
+	text-align: center;
+	width: 100px;
+	height: 200px;
+	float: left;
+}
+
+.starClass {
+	width: 15px;
+	height: 15px;
+}
+
+.champSelectBtn {
+	margin-left: 20px;
+}

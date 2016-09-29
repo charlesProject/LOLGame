@@ -5,6 +5,7 @@ import jxufe.liuburu.util.LOLGameUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,9 +20,12 @@ public class ChampionQueryControl {
 	 */
 	@RequestMapping("/icon/{champion_id}")
 	@ResponseBody
-	public JSONObject getChampionIcon(
-			@PathVariable("champion_id") Integer champion_id){
-		JSONObject result = LOLGameUtil.getChampionIcon(champion_id);
+	public JSONObject getChampionSmallIcon(
+			@PathVariable("champion_id") Integer champion_id,
+			@RequestParam("type") Integer type
+			){
+		JSONObject result = LOLGameUtil.getChampionIcon(champion_id,type);
 		return result;
 	}
+	
 }

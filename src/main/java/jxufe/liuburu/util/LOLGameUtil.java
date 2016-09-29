@@ -160,8 +160,10 @@ public class LOLGameUtil {
 
 	private static JSONArray filterTopChampion(JSONArray resultArray) {
 		JSONArray topChampion = new JSONArray();
-		for(int i=0;i<3;i++){
-			topChampion.add(resultArray.get(i));
+		if(resultArray.size()!=0){
+			for(int i=0;i<3;i++){
+				topChampion.add(resultArray.get(i));
+			}
 		}
 		return topChampion;
 	}
@@ -266,12 +268,20 @@ public class LOLGameUtil {
 	}
 	
 	/**
-	 * 获取召唤师图片
+	 * 获取召唤师大图片
 	 * @param champion_id
+	 * @param type 参数只能为0或者1
 	 * @return
 	 */
-	public static JSONObject getChampionIcon(int champion_id){
-		String icon_url =Path.CHAMPION_ICON_PATH+ "/"+champion_id+".png";
+	public static JSONObject getChampionIcon(int champion_id,int type){
+		String icon_url ="";
+		if(type==0){
+			icon_url =Path.CHAMPION_SMALL_ICON+ "/"+champion_id+".png";
+		}else if(type==1){
+			icon_url = Path.CHAMPION_BIG_ICON+ "/"+champion_id+".jpg";
+		}else{
+			icon_url = "type参数传递错误";
+		}
 		JSONObject result = new JSONObject();
 		result.put("champion_id", champion_id);
 		result.put("icon_url", icon_url);

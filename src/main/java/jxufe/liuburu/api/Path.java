@@ -32,10 +32,17 @@ public class Path {
 	
 	/*********************************第二分类****************************************************************/
 	/**
-	 * 获取召唤师的头像
+	 * 获取召唤师的缩略头像
 	 * http://cdn.tgp.qq.com/lol/images/resources/champions/133.png
 	 */
-	public static final String CHAMPION_ICON_PATH= "http://cdn.tgp.qq.com/lol/images/resources/champions";
+	public static final String CHAMPION_SMALL_ICON= "http://cdn.tgp.qq.com/lol/images/resources/champions";
+	
+	
+	/**
+	 * 获取召唤师的大头像
+	 * http://cdn.tgp.qq.com/lol/images/resources/card/60.jpg
+	 */
+	public static final String CHAMPION_BIG_ICON= "http://cdn.tgp.qq.com/lol/images/resources/card";
 	
 	
 }

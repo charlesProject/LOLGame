@@ -6,7 +6,9 @@
 	font-size: 15px;
 	font-family: "微软雅黑";
 }
-
+#pagePluginBox{
+	margin-top: -25px;
+}
 .cursorClass{
 	cursor: pointer;
 }

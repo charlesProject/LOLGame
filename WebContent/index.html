@@ -14,6 +14,8 @@
 		<!--分页组件-->
 		<link rel="stylesheet" href="css/pagination.css" />
 		<script type="text/javascript" src="js/jquery.pagination.js"></script>
+		<!--更多英雄相关的样式  -->
+		<link rel="stylesheet" href="css/modal_champion.css" />
 
 		<!--导入本页面的js-->
 		<script type="text/javascript" src="js/mine/userarea_query.js"></script>
@@ -68,11 +70,11 @@
 							<h4 style="text-align: left;">个人信息</h4>
 							<div class="infoHead">
 								<div class="infoItem">
-									<img src="img/2.png" class="headIcon img-circle" />
+									<img id="basicUserIcon" src="img/unknown.png" class="headIcon img-circle" />
 								</div>
 								<div class="infoItem" style="padding-top: 5px;font-size: 15px;color: darkblue; text-align: center;">
 									<div>
-										<p style="float:left;" id="basicName">XXXXXXX </p>
+										<p style="float:left;" id="basicName">??????? </p>
 									<p style="float:left;margin-left: 25px" id="basicWinPoint">胜点--</p>
 									<p style="clear:both;"></p>
 									</div>
@@ -109,19 +111,19 @@
 						<div class="zhaopaiHero">
 							<h4 style="text-align: left;">招牌英雄</h4>
 							<div class="zhaopaiItem">
-								<img id="topChampionIcon2" src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+								<img id="topChampionIcon2" src="img/unknown.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
 								<p id="topChampionName2">评分:-----</p>
 							</div>
 							<div class="zhaopaiItem">
-								<img id="topChampionIcon1" src="img/Nautilus.png" class="img-circle" style="width: 65px;height:65px;" />
+								<img id="topChampionIcon1" src="img/unknown.png" class="img-circle" style="width: 65px;height:65px;" />
 								<p id="topChampionName1">评分:-----</p>
 							</div>
 							<div class="zhaopaiItem">
-								<img id="topChampionIcon3" src="img/Nautilus.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
+								<img id="topChampionIcon3" src="img/unknown.png" class="img-circle" style="width: 55px;height: 55px; margin-top: 5px;" />
 								<p id="topChampionName3">评分:-----</p>
 							</div>
 							<div class="zhaopaiItem">
-								<a href="javascript:;">更多>></a>
+								<a type="button" class="" data-toggle="modal" data-target="#myModal" id="">更多>></a>
 							</div>
 							<div style="clear: both;"></div>
 						</div>
@@ -133,23 +135,23 @@
 								<div>
 									<div class="honorItem">
 										<img src="img/honor/mvp.png" style="width: 40px; margin-top: 17px;" />
-										<p  id="totalMVP">X120</p>
+										<p  id="totalMVP">X???</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_04.png" class="heroHonorImg img-circle" />
-										<p id="godLikeNum">X123</p>
+										<p id="godLikeNum">X???</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_01.png" class="heroHonorImg img-circle" />
-										<p id="pentaKills">X123</p>
+										<p id="pentaKills">X???</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_02.png" class="heroHonorImg img-circle" />
-										<p id="quadraKills">X123</p>
+										<p id="quadraKills">X???</p>
 									</div>
 									<div class="honorItem">
 										<img src="img/honor/hero_depth_03.png" class="heroHonorImg img-circle" />
-										<p id="tripleKills">X123</p>
+										<p id="tripleKills">X???</p>
 									</div>
 
 								</div>
@@ -170,7 +172,7 @@
 					</div>
 					<div class="leftMidBox">
 						<!--战绩列表 begin-->
-						<div class="centerBox col-md-5" id="gameList">
+						<div class="centerBox col-md-4" id="gameList">
 							<ul class="list-group">
 								<li class="list-group-item">
 									<div>
@@ -330,7 +332,7 @@
 						<!--战绩列表 end-->
 
 						<!--战绩详情begin-->
-						<div class="eastBox col-md-7">
+						<div class="eastBox col-md-8">
 							<!--其他拓展功能Begin-->
 							<div class="kitClass">
 								<ul>
@@ -365,7 +367,7 @@
 									<td>召唤师</td>
 									<td>贡献值</td>
 									<td>经济</td>
-									<td>KDA</td>
+									<td>KDA(杀/死/助)</td>
 									<td>出装</td>
 								</tr>
 								<tr class="active">
@@ -380,6 +382,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -394,6 +397,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -408,6 +412,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -422,6 +427,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -436,6 +442,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 							</table>
@@ -450,7 +457,7 @@
 									<td>召唤师</td>
 									<td>贡献值</td>
 									<td>经济</td>
-									<td>KDA</td>
+									<td>KDA(杀/死/助)</td>
 									<td>出装</td>
 								</tr>
 								<tr class="active">
@@ -465,6 +472,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -479,6 +487,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -493,6 +502,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -507,6 +517,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 								<tr class="active">
@@ -521,6 +532,7 @@
 										<img src="img/3065.png" class="championIcon" />
 										<img src="img/3072.png" class="championIcon" />
 										<img src="img/3009.png" class="championIcon" />
+										<img src="img/3340.png" class="championIcon" />
 									</td>
 								</tr>
 							</table>
@@ -565,7 +577,47 @@
 				</div>
 			</div>
 		</div>
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel">我的英雄<button class="btn btn-default champSelectBtn" id="latelyBtn">最近常用</button><button class="btn btn-danger champSelectBtn" id="usedExpBtn">熟练度</button></h4>
+					</div>
+					<div class="modal-body" id="modalBody">
+						<!--第一个盒子开始-->
+						<div class="championCard" style="display: none;">
+							<div class="cardLeft">
+								<img src="img/86.jpg" class="leftImg" />
+							</div>
+							<div class="cardRight">
+								<div>
+									<p style="color: #85B6B7; margin-top: 15px;">德玛西亚之力</p>
+									<p style="color: #C56710;">20135</p>
+									<p style="color: #427A9F;">熟练度</p>
+									<div>
+										<img src="img/star.png" class="starClass" />
+										<img src="img/star.png" class="starClass" />
+										<img src="img/star.png" class="starClass" />
+										<img src="img/star.png" class="starClass" />
+										<img src="img/black_star.png" class="starClass" />
+									</div>
+									<div>
+										<p style="margin-top: 8px;"><span style="color: #427A9F;">胜率</span><span style="color: #00C790; margin-left: 8px;">50%</span></p>
+										<p><span style="color: #427A9F;">场次</span><span style="color: #00C790;margin-left: 8px;">50</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--第一个盒子结束-->
+					</div>
+					<div style="clear: both;"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 
 </html>
