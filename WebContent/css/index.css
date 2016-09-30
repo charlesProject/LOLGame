@@ -7,7 +7,7 @@
 	font-family: "微软雅黑";
 }
 #pagePluginBox{
-	margin-top: -25px;
+	margin-top: -15px;
 }
 .cursorClass{
 	cursor: pointer;
@@ -23,7 +23,12 @@
 
 .searchResultBox {
 	float: left;
-	margin-left: 12px;
+	margin-left: 5px;
+	width:43px;
+}
+
+.thridBoxClass{
+	width: 70px;
 }
 
 .searchResultBoxLast{
@@ -34,6 +39,7 @@
 .headIcon {
 	height: 40px;
 	width: 40px;
+	margin-left:10px;
 }
 
 .areaP {
@@ -57,8 +63,20 @@
 }
 
 .championIcon {
-	height: 32px;
-	width: 32px;
+	/* height: 32px;
+	width: 32px; */
+	width: 45px;
+	height:45px;
+}
+.lolItemIcon{
+	height: 24px;
+	width: 17px;
+	float:left;
+	margin-left: 5px;
+}
+.lolIHeadtemIcon{
+	height: 37px;
+	width: 30px;
 }
 
 .infoItem {
@@ -68,7 +86,7 @@
 .userInfo {
 	border: 2px gray solid;
 	height: 210px;
-	background: #FEFEFE;
+	background: white;
 }
 
 .areaLeavel {
@@ -78,6 +96,7 @@
 .zhaopaiHero {
 	border: 2px gray solid;
 	margin-top: 10px;
+	background: white;
 }
 
 .zhaopaiItem {
@@ -88,6 +107,7 @@
 .recentBehave {
 	border: 2px gray solid;
 	margin-top: 10px;
+	background: white;
 }
 
 .honorClass {
@@ -117,8 +137,9 @@
 /*页面底部版权信息beign*/
 .copyright {
 	float: left;
-	margin-left: 160px;
-	position: relative
+	margin-left: 100px;
+	position: relative;
+	margin-top:37px;
 }
 
 .copyright li {
@@ -148,3 +169,22 @@
 .kitClass ul li a:hover{
 	color: red;
 }
+
+/*游戏数据分页查询模块*/
+.gamerQueryResult{
+	font-size: 12px;
+}
+
+.lolGameDataHover{
+	cursor: pointer;
+}
+
+.lolGameDataHover:HOVER {
+	background-color: #F4F0F0;
+}
+.mvpIcon{
+width: 40px;
+height: 15px;
+}
+
+

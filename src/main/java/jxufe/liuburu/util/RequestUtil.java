@@ -5,6 +5,8 @@ import java.net.URLEncoder;
 
 import org.apache.http.client.utils.URLEncodedUtils;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * 请求参数生成器
  * @author liuburu
@@ -35,6 +37,26 @@ public class RequestUtil {
 		 */
 		public static String championTop(String qquin,int area_id){
 			String param = "[[35,{\"area_id\":\""+area_id+"\",\"qquin\":\""+qquin+"\"}]]";
+			return param;
+		}
+		
+		/**
+		 * 生成战绩请求参数
+		 * @param qquin	玩家唯一编号
+		 * @param area_id 大区编号
+		 * @param bt_num 类型分类参数
+		 * @param bt_list 类型分类参数 (注意：为数组形式)
+		 * @param champion_id 召唤师编号
+		 * @param offset 数据偏离量
+		 * @param limit 分页大小
+		 * @param mvp_flag 是否为mvp数据
+		 * @return
+		 */
+		public static String queryGameData(
+				String qquin,int area_id,int bt_num,int bt_list,
+				int champion_id,int offset,int limit,int mvp_flag){
+			String new_bt_list = (bt_list==-1)?"":""+bt_list;
+			String param = "[[3,{\"area_id\":"+area_id+",\"qquin\":\""+qquin+"\",\"bt_num\":\""+bt_num+"\",\"bt_list\":["+new_bt_list+"],\"champion_id\":"+champion_id+",\"offset\":"+offset+",\"limit\":"+limit+",\"mvp_flag\":"+mvp_flag+"}]]";
 			return param;
 		}
 		

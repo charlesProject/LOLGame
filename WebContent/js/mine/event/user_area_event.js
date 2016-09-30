@@ -7,9 +7,25 @@ function bindQueryResultEvent(){//查询结果点击事件
 		basicAjax(qquin,area_id);//基本信息请求
 		topChampionAjax(qquin,area_id,3);//选择top3请求
 		detailAjax(qquin,area_id);//详细信息请求
+		$("[data-toggle='modal' ]").attr("id",area_id+"_"+qquin)
+	//	var qquin_areaid = $("[data-toggle='modal']").attr("id").split("_");
+		var bt_num = 0;
+		var bt_list=-1;
+		var champion_id=0;
+		var offset=0;
+		var limit = 8;
+		var mvp_flag = -1;
+		initDefaultPagePlugin(qquin,area_id,bt_num,bt_list,champion_id,offset,limit,mvp_flag)//绑定对战分页信息,默认开始加载beginIndex:0  pageSize:8的页面数据
+		//绑定mvp按钮事件
+		bindMvpBtnEvent();
+		bindDefaultQueryAllBtnEvent();
+		bindPaiWeiBtnEvent();
+		bindPiPeiBtnEvent();
+		bindDaLuanDouBtnEvent();
+		bindRenJiBtnEvent();
 		$("#queryResultList").hide();
 		$(".queryResultBottom").show();
-	})
+	});
 }
 //查询更多英雄事件
 function bindMoreChampioBtnEvent(ele){

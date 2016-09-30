@@ -44,5 +44,13 @@ public class Path {
 	 */
 	public static final String CHAMPION_BIG_ICON= "http://cdn.tgp.qq.com/lol/images/resources/card";
 	
+	/*********************************第三分类****************************************************************/
+	
+	/**
+	 * 获取游戏的战绩分页信息
+	 * http://api.pallas.tgp.qq.com/core/tcall?p=[[3,{"area_id":26,"qquin":"2914207499","bt_num":"0","bt_list":[],"champion_id":0,"offset":40,"limit":8,"mvp_flag":-1}]]
+	 */
+	public static final String GAME_PAGE_PATH= "http://api.pallas.tgp.qq.com/core/tcall";
+	
 	
 }

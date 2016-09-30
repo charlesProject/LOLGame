@@ -90,7 +90,7 @@ function updateChampionTopInfo(data){
 			$("#topChampionName"+(i+1)).html(data[i].used_exp_value);
 		}
 		//更新更多英雄按钮的id,同时绑定查询事件到改元素
-		$("[data-toggle='modal' ]").attr("id",data[0].area_id+"_"+data[0].qquin);
+		//$("[data-toggle='modal' ]").attr("id",data[0].area_id+"_"+data[0].qquin);
 		bindMoreChampioBtnEvent("[data-toggle='modal' ]");
 		bindTowChampionQueryTypeEvent("latelyBtn","usedExpBtn");
 	}
@@ -98,8 +98,8 @@ function updateChampionTopInfo(data){
 
 //更新查询所有英雄(更新模态框)
 function updateChampionMoreInfo(data){
-	console.log("更新模态框");
-	console.log(data);
+//	console.log("更新模态框");
+//	console.log(data);
 	$("#modalBody").html("");
 	for(var i=0;i<data.length;i++){
 		var victoryRate = (100*data[i].win_num/data[i].use_num).toFixed(1);
@@ -175,8 +175,8 @@ function updateChampionIcon(ele,champion_id,type){
 		success: function(data) {
 //			console.log("TOP3更新图标");
 //			console.log(data);
-			console.log("更新MOdal图标"+ele);
-			console.log(data);
+//		console.log("更新MOdal图标"+ele);
+//			console.log(data);
 			$("#"+ele).attr("src",data.icon_url);
 		}
 	});
@@ -184,7 +184,7 @@ function updateChampionIcon(ele,champion_id,type){
 //更新排行榜英雄Name
 function updateChampionName(ele,champion_id){
 	var championName = getChampionName(champion_id);
-	console.log("更新Modal Name="+championName);
+//	console.log("更新Modal Name="+championName);
 	$("#"+ele).html(championName);
 }
 
@@ -202,5 +202,42 @@ function updateChampionLevelStar(ele,used_exp_value){
 					"<img src='img/black_star.png' class='starClass'>"
 			);
 		}
+	}
+}
+
+
+//初始化游戏战斗数据
+function updateGamePlayData(data){
+	console.log("战绩初始化");
+	console.log(data)
+	$("#lolGameDataList").html("");
+	for(var i=0;i<data.data[0].battle_list.length;i++){
+		var gameTime = data.data[0].battle_list[i].battle_time;
+		var dateTime = gameTime.split(" ");
+		$("#lolGameDataList").append(
+				"<li class='list-group-item lolGameDataHover'>"+
+				"<div>"+
+				"	<div class='searchResultBox'>"+
+				"		<img id='gameIcon"+data.data[0].battle_list[i].game_id+"' src='img/Nautilus.png' class='championIcon img-circle' />"+
+				"	</div>"+
+				"	<div class='searchResultBox'>"+
+				"		<p id='gameName"+data.data[0].battle_list[i].game_id+"' class='sumName'>深海泰坦</p>"+
+				"		<p>"+getWin(data.data[0].battle_list[i].win)+"</p>"+
+				"	</div>"+
+				"	<div class='searchResultBox thridBoxClass'>"+
+				"		<p>"+dateTime[0]+"</p>"+
+				"		<p>"+dateTime[1]+"</p>"+
+				"	</div>"+
+				"	<div class='searchResultBox'>"+
+				"		<p>"+getGameModalName(data.data[0].battle_list[i].game_mode)+"</p>"+
+				"  <img class='mvpIcon' src='img/honor/mvp.png' alt='mvp'>"+
+				"	</div>"+
+				"	<div style='clear: both;'></div>"+
+				"</div>"+
+			"</li>"
+		);
+		$("#lolGameDataList>li").first().css({background:"#F4F0F0"});//改变战绩列表中第一个盒子的默认底色
+		updateChampionIcon("gameIcon"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新缩略图
+		updateChampionName("gameName"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新图标
 	}
 }

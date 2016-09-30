@@ -124,7 +124,7 @@ public class LOLGameUtil {
 		String param = RequestUtil.championTop(qquin, area_id); 
 		String encParam =URLEncoder.encode(param, "UTF-8");
 		HttpGet httpGet = new HttpGet(Path.USER_DETIL_INFO+"?p="+encParam);
-		System.out.println(Path.USER_DETIL_INFO+"?p="+encParam);
+	//	System.out.println(Path.USER_DETIL_INFO+"?p="+encParam);
 		setlolToken(httpGet);
 		JSONArray resultArray = null;
 		try {
@@ -288,7 +288,55 @@ public class LOLGameUtil {
 		return  result;
 	}
 
+	/**
+	 * 根据不同游戏模型，进行游戏战绩信息分类
+	 * @param qquin	玩家唯一编号
+	 * @param area_id 大区编号
+	 * @param bt_num 类型分类参数
+	 * @param bt_list 类型分类参数
+	 * @param champion_id 召唤师编号
+	 * @param offset 数据偏离量
+	 * @param limit 分页大小
+	 * @param mvp_flag 是否为mvp数据
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	public static JSONObject queryGameDataByPage(String qquin, int area_id,
+			int bt_num, int bt_list, int champion_id, int offset, int limit,
+			int mvp_flag) throws UnsupportedEncodingException {
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		String param = RequestUtil.queryGameData(qquin, area_id, bt_num,
+				bt_list, champion_id, offset, limit, mvp_flag);
+		String encParam = URLEncoder.encode(param, "UTF-8");
+		HttpGet httpGet = new HttpGet(Path.GAME_PAGE_PATH + "?p=" + encParam);
+		System.out.println(Path.USER_DETIL_INFO + "?p=" + encParam);
+		setlolToken(httpGet);
+		JSONObject resultObject = null;
+		try {
+			CloseableHttpResponse response = httpclient.execute(httpGet);
+			resultObject = JSONObject.parseObject(EntityUtils.toString(
+					response.getEntity(), "UTF-8"));
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultObject;
+	}
 	public static void main(String[] args) throws UnsupportedEncodingException {
+		String qquin = "2914207499";
+		int area_id = 26;
+		int bt_num =1;
+		int bt_list = 8;
+		int champion_id=0;
+		int offset=0;
+		int limit=8;
+		int mvp_flag=-1;
 		//	System.out.println(getUserIcon(106));
 			//System.out.println(getUserTier(3, 1));
 			//System.out.println(getGameAreaName(26));
@@ -299,6 +347,8 @@ public class LOLGameUtil {
 //			System.out.println(resultArray);
 //			System.out.println(resultArray.size());
 		//	System.out.println(getChampionIcon(86));
-		System.out.println(getUserArea("卡卡罗特44"));
+		//System.out.println(getUserArea("卡卡罗特44"));
+		System.out.println(RequestUtil.queryGameData(qquin, area_id, bt_num, bt_list, champion_id, offset, limit, mvp_flag));
+		System.out.println(queryGameDataByPage(qquin, area_id, bt_num, bt_list, champion_id, offset, limit, mvp_flag));
 		}
 }
