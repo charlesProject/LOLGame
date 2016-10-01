@@ -150,18 +150,18 @@ public class LOLGameUtil {
 	 */
 	private static JSONArray selectChampion(JSONObject obj,int type) {
 		JSONArray resultArray = resolveJsonObject2Array(obj, type);
-		if(type==3){
-			resultArray =  filterTopChampion(resultArray);
+		if(type>=3){
+			resultArray =  filterTopChampion(resultArray,type);
 		}
 		return resultArray;
 	}
 	
 	
 
-	private static JSONArray filterTopChampion(JSONArray resultArray) {
+	private static JSONArray filterTopChampion(JSONArray resultArray,int type) {
 		JSONArray topChampion = new JSONArray();
 		if(resultArray.size()!=0){
-			for(int i=0;i<3;i++){
+			for(int i=0;i<type;i++){
 				topChampion.add(resultArray.get(i));
 			}
 		}
@@ -172,7 +172,7 @@ public class LOLGameUtil {
 		TreeSet<Champion> champions = null;
 		if(type==1){
 			champions = new TreeSet<Champion>(new ChampionUserTimeComparator());
-		}else if(type==2||type==3){
+		}else if(type==2||type>=3){
 			champions = new TreeSet<Champion>(new ChampionExpValueComparator());
 		}else{
 			System.out.println("type参数传递错误");
@@ -328,6 +328,84 @@ public class LOLGameUtil {
 		}
 		return resultObject;
 	}
+	
+	/**
+	 * 查询某一局对战详情
+	 * @param area_id
+	 * @param game_id
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	public static JSONObject queryGameDetail(int area_id,int game_id) throws UnsupportedEncodingException{
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		String param = RequestUtil.queryGameDetail(area_id, game_id);
+		String encParam = URLEncoder.encode(param, "UTF-8");
+		HttpGet httpGet = new HttpGet(Path.GAME_DETAIL_INFO + "?p=" + encParam);
+		System.out.println(Path.GAME_DETAIL_INFO + "?p=" + encParam);
+		setlolToken(httpGet);
+		JSONObject resultObject = null;
+		try {
+			CloseableHttpResponse response = httpclient.execute(httpGet);
+			resultObject = JSONObject.parseObject(EntityUtils.toString(
+					response.getEntity(), "UTF-8"));
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultObject;
+	}
+	
+	public static JSONObject queryMvpPlayer(int area_id,int game_id) throws UnsupportedEncodingException{
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		String param = RequestUtil.queryGameDetail(area_id, game_id);
+		String encParam = URLEncoder.encode(param, "UTF-8");
+		HttpGet httpGet = new HttpGet(Path.GAME_DETAIL_INFO + "?p=" + encParam);
+		System.out.println(Path.GAME_DETAIL_INFO + "?p=" + encParam);
+		setlolToken(httpGet);
+		JSONObject resultTemp = null;
+		JSONObject resultObject = null;
+		try {
+			CloseableHttpResponse response = httpclient.execute(httpGet);
+			resultTemp = JSONObject.parseObject(EntityUtils.toString(
+					response.getEntity(), "UTF-8"));
+			resultObject = filterMvpUser(resultTemp);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultObject;
+	}
+	
+	private static JSONObject filterMvpUser(JSONObject result) {
+		JSONObject msg = new JSONObject();
+		JSONArray gameRecords = result.getJSONObject("data").getJSONObject("battle").getJSONArray("gamer_records");
+		String mvp_qquin = gameRecords.getJSONObject(0).getString("qquin");
+		int mvp_score = Integer.parseInt(gameRecords.getJSONObject(0).getString("game_score"));
+		for(int i=0;i<gameRecords.size();i++){
+			int temp = Integer.parseInt(gameRecords.getJSONObject(i).getString("game_score"));
+			if(temp>mvp_score){
+				mvp_score = temp;
+				mvp_qquin = gameRecords.getJSONObject(i).getString("qquin");
+			}
+		}
+		msg.put("game_id", result.getJSONObject("data").getJSONObject("battle").getString("game_id"));
+		msg.put("mvp_qquin", mvp_qquin);
+		msg.put("mvp_score", mvp_score);
+		return msg;
+	}
+
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		String qquin = "2914207499";
 		int area_id = 26;
@@ -348,7 +426,12 @@ public class LOLGameUtil {
 //			System.out.println(resultArray.size());
 		//	System.out.println(getChampionIcon(86));
 		//System.out.println(getUserArea("卡卡罗特44"));
-		System.out.println(RequestUtil.queryGameData(qquin, area_id, bt_num, bt_list, champion_id, offset, limit, mvp_flag));
-		System.out.println(queryGameDataByPage(qquin, area_id, bt_num, bt_list, champion_id, offset, limit, mvp_flag));
+//		System.out.println(RequestUtil.queryGameData(qquin, area_id, bt_num, bt_list, champion_id, offset, limit, mvp_flag));
+//		System.out.println(queryGameDataByPage(qquin, area_id, bt_num, bt_list, champion_id, offset, limit, mvp_flag));
+	//	System.out.println(queryGameDetail(26, 336185858));
+		
+//		JSONArray championInfoByType = getChampionInfoByType(qquin, area_id, 5);
+//		System.out.println(championInfoByType);
+		System.out.println(queryMvpPlayer(26,336185858));
 		}
 }

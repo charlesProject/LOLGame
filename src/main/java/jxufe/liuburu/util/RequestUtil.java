@@ -60,4 +60,15 @@ public class RequestUtil {
 			return param;
 		}
 		
+		/**
+		 * 封装单局游戏详情请求参数
+		 * @param area_id
+		 * @param game_id
+		 * @return
+		 */
+		public static String queryGameDetail(int area_id, int game_id) {
+			String param = "{\"area_id\":"+area_id+",\"game_id\":\""+game_id+"\"}";
+			return param;
+		}
+		
 }

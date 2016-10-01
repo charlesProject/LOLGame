@@ -73,7 +73,7 @@ function updateBasicInfo(data){
 	$("#basicName").html(data.data.name);
 	$("#basicWinPoint").html("胜点"+data.data.win_point);
 	$("#basicPraiseNum").html(data.data.praise_num);
-	$("#basicDiscreditNum").html(data.data.discredit_num);
+	//$("#basicDiscreditNum").html(data.data.discredit_num);
 	$("#basicLevel").html(data.data.level);
 	$("#basicPowerValue").html(data.data.power_value);
 	$("#basicRankLastBattle").html(data.data.rank_last_battle);

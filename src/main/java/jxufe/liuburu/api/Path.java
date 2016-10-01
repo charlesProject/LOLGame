@@ -52,5 +52,11 @@ public class Path {
 	 */
 	public static final String GAME_PAGE_PATH= "http://api.pallas.tgp.qq.com/core/tcall";
 	
+	/**
+	 * 战斗详情
+	 * http://api.pallas.tgp.qq.com/core/get_battle_info?p={"area_id":26,"game_id":"336185858"}
+	 */
+	public static final String GAME_DETAIL_INFO ="http://api.pallas.tgp.qq.com/core/get_battle_info";
+	
 	
 }

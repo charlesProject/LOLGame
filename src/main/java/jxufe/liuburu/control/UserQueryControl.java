@@ -117,7 +117,7 @@ public class UserQueryControl {
 			@PathVariable("type")Integer type){
 		JSONArray resultArray=null;
 		try {
-			resultArray = LOLGameUtil.getChampionInfoByType(qquin, area_id, type);
+			resultArray = LOLGameUtil.getChampionInfoByType(qquin, area_id,type);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

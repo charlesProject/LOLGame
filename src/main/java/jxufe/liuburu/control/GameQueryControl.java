@@ -46,4 +46,41 @@ public class GameQueryControl {
 		}
 		return resultObject;
 	}
+	
+	/***
+	 * 游戏详情查询
+	 * @param area_id
+	 * @param game_id
+	 * @return
+	 */
+	@RequestMapping("/detail")
+	@ResponseBody
+	public JSONObject  queryGameDetail(
+			@RequestParam("area_id")Integer area_id,
+			@RequestParam("game_id")Integer game_id){
+		JSONObject result = null;
+		try {
+			result = LOLGameUtil.queryGameDetail(area_id, game_id);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
+	@RequestMapping("queryMvp")
+	@ResponseBody
+	public JSONObject checkWhetherMvpPlayer(
+			@RequestParam("area_id")Integer area_id,
+			@RequestParam("game_id")Integer game_id
+			){
+		JSONObject result= null;
+		try {
+			result = LOLGameUtil.queryMvpPlayer(area_id, game_id);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
