@@ -3,12 +3,12 @@ function bindQueryResultEvent(){//查询结果点击事件
 		var params = $(this).attr("id").split("_");
 		var area_id = params[0];
 		var qquin = params[1];
-		console.log("获得-->"+area_id+","+qquin);
+	//	console.log("获得-->"+area_id+","+qquin);
 		basicAjax(qquin,area_id);//基本信息请求
 		topChampionAjax(qquin,area_id,3);//选择top3请求
-		detailAjax(qquin,area_id);//详细信息请求
 		$("[data-toggle='modal' ]").attr("id",area_id+"_"+qquin)
-	//	var qquin_areaid = $("[data-toggle='modal']").attr("id").split("_");
+		detailAjax(qquin,area_id);//详细信息请求
+		setBasicGameNumAjax();//设置匹配基本信息中的gameNum
 		var bt_num = 0;
 		var bt_list=-1;
 		var champion_id=0;
@@ -16,6 +16,9 @@ function bindQueryResultEvent(){//查询结果点击事件
 		var limit = 8;
 		var mvp_flag = -1;
 		initDefaultPagePlugin(qquin,area_id,bt_num,bt_list,champion_id,offset,limit,mvp_flag)//绑定对战分页信息,默认开始加载beginIndex:0  pageSize:8的页面数据
+		InitExpQueryBtn();
+		$("#queryResultList").hide();
+		$(".queryResultBottom").show();
 		//绑定mvp按钮事件
 		bindMvpBtnEvent();
 		bindDefaultQueryAllBtnEvent();
@@ -23,8 +26,9 @@ function bindQueryResultEvent(){//查询结果点击事件
 		bindPiPeiBtnEvent();
 		bindDaLuanDouBtnEvent();
 		bindRenJiBtnEvent();
-		$("#queryResultList").hide();
-		$(".queryResultBottom").show();
+		
+		//英雄熟练度按钮相关的操作
+		InitExpQueryBtn();
 	});
 }
 //查询更多英雄事件
@@ -107,7 +111,6 @@ function detailAjax(qquin,area_id){
 		},
 		success: function(data) {
 			updateDetailInfo(data);//更新用户基本信息
-		
 		}
 	});
 }
@@ -116,4 +119,57 @@ function detailAjax(qquin,area_id){
 function turnModalOptionBtnColor(curBtn,otherBtn){
 	$("#"+curBtn).attr("class","btn btn-danger champSelectBtn");
 	$("#"+otherBtn).attr("class","btn btn-default champSelectBtn");
+}
+
+//设置基本的游戏总量的ajax
+function setBasicGameNumAjax(){
+	var qquin_areaid = $("[data-toggle='modal']").attr("id").split("_");
+	var qquin = qquin_areaid[1];
+	var area_id = qquin_areaid[0];
+	var bt_num = 0;
+	var bt_list=-1;
+	var champion_id=0;
+	var offset=0;
+	var limit = 8;
+	var mvp_flag = -1;
+	$.ajax({//第一个ajax请求
+		type: "get",
+		url: "game/pageData",
+		data:{
+			"qquin":qquin,
+			"area_id":area_id,
+			"bt_num":bt_num,
+			"bt_list":bt_list,
+			"champion_id":champion_id,
+			"offset":offset,
+			"limit":limit,
+			"mvp_flag":mvp_flag
+		},
+		success: function(data) {
+			//设置排位总数量信息
+			if(data.data.length!=0){
+				$("#basicTotalNum").html(data.data[0].total_num	);
+			}
+		}
+	});
+	
+	$.ajax({//第二个ajax请求
+		type: "get",
+		url: "game/pageData",
+		data:{
+			"qquin":qquin,
+			"area_id":area_id,
+			"bt_num":1,
+			"bt_list":4,
+			"champion_id":champion_id,
+			"offset":offset,
+			"limit":limit,
+			"mvp_flag":mvp_flag
+		},
+		success: function(data) {
+			//设置排位总数量信息
+			$("#basicPaiWeiTotalNum").html(data.data[0].total_num	);
+		}
+	});
+	
 }

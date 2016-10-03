@@ -4,6 +4,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>LOL战绩查询--LBR</title>
+ <link rel="icon" href="img/favicon-20161003093546151.ico" type="image/x-icon" />
+ <link rel="shortcut icon" href="img/favicon-20161003093546151.ico" type="image/x-icon" />
 <!--bootstrap导入begin-->
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
@@ -28,6 +30,8 @@
 <script type="text/javascript" src="js/mine/game_modal_page2.js"></script>
 <script type="text/javascript" src="js/mine/game_modal_page3.js"></script>
 <script type="text/javascript" src="js/mine/game_modal_page4.js"></script>
+<script type="text/javascript" src="js/mine/exp_champion_page.js"></script>
+<script type="text/javascript" src="js/mine/game_detail_click.js"></script>
 
 <script type="text/javascript" src="js/index.js"></script>
 <!--导入统计图相关-->
@@ -121,6 +125,14 @@
 									<td>上赛季排名</td>
 									<td id="basicRankLastBattle">------</td>
 								</tr>
+								<tr class="active">
+									<td >排位场次</td>
+									<td id="basicPaiWeiTotalNum">------</td>
+								</tr>
+								<tr class="active">
+									<td>本赛季总场次</td>
+									<td id="basicTotalNum">------</td>
+								</tr>
 							</table>
 						</div>
 					</div>
@@ -208,7 +220,7 @@
 									data-toggle="dropdown">
 									比赛类型<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu" role="menu">
+								<ul class="dropdown-menu" role="menu" >
 									<li><a href="#" id="queryPaiWei">排位</a></li>
 									<li><a href="#" id="queryPiPei">匹配</a></li>
 									<li><a href="#" id="queryRenJi">人机</a></li>
@@ -220,11 +232,14 @@
 									data-toggle="dropdown">
 									常用<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="#" id="heroBtn1">英雄1</a></li>
-									<li><a href="#" id="heroBtn2">英雄2</a></li>
-									<li><a href="#" id="heroBtn3">英雄3</a></li>
-									<li><a href="#" id="heroBtn4">英雄4</a></li>
+								<ul class="dropdown-menu" role="menu" >
+									<li id="expChampionMenue">
+											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
+											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
+											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
+											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
+											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -403,7 +418,6 @@
 							<ul>
 								<li><a href="#">我的皮肤</a></li>
 								<li><a href="#">本周周免</a></li>
-								<li><a href="#">成就英雄</a></li>
 								<li><a href="#">国服排行</a></li>
 								<li><a href="#">联系作者</a></li>
 							</ul>
@@ -420,7 +434,7 @@
 								<td>召唤师</td>
 								<td>昵称</td>
 								<td>经济</td>
-								<td>KDA(杀/死/助)</td>
+								<td>KDA/评分</td>
 								<td colspan="2">技能</td>
 								<td colspan="6">出装</td>
 							</tr>
@@ -442,7 +456,10 @@
 								<td>
 									6625
 								</td>
-								<td>24(1/1/7)</td>
+								<td>
+								<p>24(1/1/7)</p>
+								<p style="color:red;">15.6</p>
+								</td>
 								<td colspan="2">
 										<img src="img/4.jpg" class="lolItemIcon" />
 									<img src="img/14.jpg" class="lolItemIcon" />
@@ -468,7 +485,7 @@
 								<td>召唤师</td>
 								<td>昵称</td>
 								<td>经济</td>
-								<td>KDA(杀/死/助)</td>
+								<td>KDA/评分</td>
 								<td colspan="2">技能</td>
 								<td colspan="6">出装</td>
 							</tr>
@@ -490,7 +507,10 @@
 								<td>
 									6625
 								</td>
-								<td>24(1/1/7)</td>
+								<td>
+								<p>24(1/1/7)</p>
+								<p style="color:red;">15.6</p>
+								</td>
 								<td colspan="2">
 										<img src="img/4.jpg" class="lolItemIcon" />
 									<img src="img/14.jpg" class="lolItemIcon" />

@@ -12,7 +12,9 @@ function getChampionName(champion_id) {
 
 //根据熟练度获取等级
 function getChampionLevel(used_exp_value){
-	if(used_exp_value>=0&&used_exp_value<8000){
+	if(used_exp_value>=0&&used_exp_value<4000){
+		return 0;
+	}else if(used_exp_value>4000&&used_exp_value<8000){
 		return 1;
 	}else if(used_exp_value>8000&&used_exp_value<12000){
 		return 2;

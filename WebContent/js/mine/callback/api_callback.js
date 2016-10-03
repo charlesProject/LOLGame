@@ -192,6 +192,11 @@ function updateChampionName(ele,champion_id){
 function updateChampionLevelStar(ele,used_exp_value){
 	var star_level = getChampionLevel(used_exp_value);
 	$("#"+ele).html("");//清空
+	if(star_level==0){
+		$("#"+ele).append(
+				"<img src='img/half_star.png' class='starClass'>"
+		);
+	}
 	for(var i=0;i<5;i++){
 		if(i<star_level){
 			$("#"+ele).append(
@@ -208,9 +213,10 @@ function updateChampionLevelStar(ele,used_exp_value){
 
 //初始化游戏战斗数据
 function updateGamePlayData(data){
-	console.log("战绩初始化");
-	console.log(data)
+//	console.log("战绩初始化");
+	//console.log(data)
 	$("#lolGameDataList").html("");
+	var area_id =  $("[data-toggle='modal']").attr("id").split("_")[0];
 	for(var i=0;i<data.data[0].battle_list.length;i++){
 		var gameTime = data.data[0].battle_list[i].battle_time;
 		var dateTime = gameTime.split(" ");
@@ -230,14 +236,38 @@ function updateGamePlayData(data){
 				"	</div>"+
 				"	<div class='searchResultBox'>"+
 				"		<p>"+getGameModalName(data.data[0].battle_list[i].game_mode)+"</p>"+
-				"  <img class='mvpIcon' src='img/honor/mvp.png' alt='mvp'>"+
+				"<div id='mvp"+data.data[0].battle_list[i].game_id+"'></div>"+
 				"	</div>"+
 				"	<div style='clear: both;'></div>"+
 				"</div>"+
 			"</li>"
+				
 		);
 		$("#lolGameDataList>li").first().css({background:"#F4F0F0"});//改变战绩列表中第一个盒子的默认底色
 		updateChampionIcon("gameIcon"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新缩略图
 		updateChampionName("gameName"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新图标
+		checkMvp(area_id,data.data[0].battle_list[i].game_id);//检验mvp
+		bindGameDetailClickEvent();
 	}
+}
+
+function checkMvp(area_id,game_id){
+	$.ajax({
+		type: "get",
+		url: "game/queryMvp",
+		data:{
+			"area_id":area_id,
+			"game_id":game_id
+		},
+		success: function(data) {
+			//判断移出mvp的条件，删除mvp标志
+//			console.log("判断移出mvp的条件，删除mvp标志");
+//			console.log(data);
+//			var curQquin= $("[data-toggle='modal']").attr("id").split("_")[1];
+			if(data.mvp_qquin==data.ukey&&data.mvp_score!=0){
+				$("#mvp"+game_id).html("<img class='mvpIcon' src='img/honor/mvp.png' alt='mvp'>");
+			}
+
+		}
+	});
 }

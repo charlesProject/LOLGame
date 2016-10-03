@@ -10,6 +10,12 @@ function getGameModalName(game_modal){
 		return "排位";
 	}else if(game_modal==11){
 		return "克隆";
+	}else if(game_modal==24){
+		return "无限乱斗";
+	}else if(game_modal==6){
+		return "大乱斗";
+	}else if(game_modal==8){
+		return "自定义";
 	}else{
 		return "*"+game_modal;
 	}

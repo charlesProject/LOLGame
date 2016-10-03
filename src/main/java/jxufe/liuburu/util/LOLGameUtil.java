@@ -393,16 +393,19 @@ public class LOLGameUtil {
 		JSONArray gameRecords = result.getJSONObject("data").getJSONObject("battle").getJSONArray("gamer_records");
 		String mvp_qquin = gameRecords.getJSONObject(0).getString("qquin");
 		int mvp_score = Integer.parseInt(gameRecords.getJSONObject(0).getString("game_score"));
+		int win = -99;
 		for(int i=0;i<gameRecords.size();i++){
 			int temp = Integer.parseInt(gameRecords.getJSONObject(i).getString("game_score"));
-			if(temp>mvp_score){
+			win = gameRecords.getJSONObject(i).getIntValue("win");
+			if(temp>mvp_score&&win==1){
 				mvp_score = temp;
 				mvp_qquin = gameRecords.getJSONObject(i).getString("qquin");
-			}
+		}
 		}
 		msg.put("game_id", result.getJSONObject("data").getJSONObject("battle").getString("game_id"));
 		msg.put("mvp_qquin", mvp_qquin);
 		msg.put("mvp_score", mvp_score);
+		msg.put("ukey", result.getString("ukey"));
 		return msg;
 	}
 
@@ -432,6 +435,6 @@ public class LOLGameUtil {
 		
 //		JSONArray championInfoByType = getChampionInfoByType(qquin, area_id, 5);
 //		System.out.println(championInfoByType);
-		System.out.println(queryMvpPlayer(26,336185858));
+		System.out.println(queryMvpPlayer(3,1644095787));
 		}
 }
