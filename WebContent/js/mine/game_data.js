@@ -6,6 +6,8 @@
 function getGameModalName(game_modal){
 	if(game_modal==1){
 		return "匹配";
+	}if(game_modal==2){
+		return "人机";
 	}else if(game_modal==4){
 		return "排位";
 	}else if(game_modal==11){

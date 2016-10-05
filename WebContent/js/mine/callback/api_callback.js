@@ -215,19 +215,20 @@ function updateChampionLevelStar(ele,used_exp_value){
 function updateGamePlayData(data){
 //	console.log("战绩初始化");
 	//console.log(data)
+	var firstGameId =data.data[0].battle_list[0].game_id;
 	$("#lolGameDataList").html("");
 	var area_id =  $("[data-toggle='modal']").attr("id").split("_")[0];
 	for(var i=0;i<data.data[0].battle_list.length;i++){
 		var gameTime = data.data[0].battle_list[i].battle_time;
 		var dateTime = gameTime.split(" ");
 		$("#lolGameDataList").append(
-				"<li class='list-group-item lolGameDataHover'>"+
+				"<li id='gameDetail_"+data.data[0].battle_list[i].game_id+"'  class='list-group-item lolGameDataHover' onclick='bindGameDetailClickEvent("+data.data[0].battle_list[i].game_id+");'>"+
 				"<div>"+
 				"	<div class='searchResultBox'>"+
-				"		<img id='gameIcon"+data.data[0].battle_list[i].game_id+"' src='img/Nautilus.png' class='championIcon img-circle' />"+
+				"		<img id='gameIcon_"+data.data[0].battle_list[i].game_id+"' src='img/Nautilus.png' class='championIcon img-circle' />"+
 				"	</div>"+
 				"	<div class='searchResultBox'>"+
-				"		<p id='gameName"+data.data[0].battle_list[i].game_id+"' class='sumName'>深海泰坦</p>"+
+				"		<p id='gameName_"+data.data[0].battle_list[i].game_id+"' class='sumName'>深海泰坦</p>"+
 				"		<p>"+getWin(data.data[0].battle_list[i].win)+"</p>"+
 				"	</div>"+
 				"	<div class='searchResultBox thridBoxClass'>"+
@@ -244,11 +245,12 @@ function updateGamePlayData(data){
 				
 		);
 		$("#lolGameDataList>li").first().css({background:"#F4F0F0"});//改变战绩列表中第一个盒子的默认底色
-		updateChampionIcon("gameIcon"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新缩略图
-		updateChampionName("gameName"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新图标
+		updateChampionIcon("gameIcon_"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新缩略图
+		updateChampionName("gameName_"+data.data[0].battle_list[i].game_id,data.data[0].battle_list[i].champion_id,0);//更新图标
 		checkMvp(area_id,data.data[0].battle_list[i].game_id);//检验mvp
-		bindGameDetailClickEvent();
+	//	bindGameDetailClickEvent();
 	}
+	bindGameDetailClickEvent(firstGameId);
 }
 
 function checkMvp(area_id,game_id){
