@@ -1,7 +1,13 @@
 package jxufe.liuburu.control;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
+import jxufe.liuburu.data.Tier;
+import jxufe.liuburu.lol.ServerNames;
+import jxufe.liuburu.lol.Tiers;
 import jxufe.liuburu.util.LOLGameUtil;
 
 import org.springframework.stereotype.Controller;
@@ -9,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 @Controller
@@ -28,7 +35,7 @@ public class GameQueryControl {
 	 */
 	@RequestMapping("/pageData")
 	@ResponseBody
-	public static JSONObject queryGameData(
+	public  JSONObject queryGameData(
 			@RequestParam("qquin")String qquin,
 			@RequestParam("area_id")Integer area_id,
 			@RequestParam(value="bt_num",defaultValue="0")Integer bt_num,
@@ -83,4 +90,42 @@ public class GameQueryControl {
 		}
 		return result;
 	}
+	
+	@RequestMapping("rankList/top")
+	@ResponseBody
+	public JSONObject getRankList(
+			@RequestParam("area_id")Integer area_id,
+			@RequestParam("pnum")Integer pnum
+			){
+		JSONObject result = LOLGameUtil.getTopChinaRankList(area_id, pnum);
+		return result;
+	}
+	
+	
+	@RequestMapping("allRankName")
+	@ResponseBody
+	public JSONArray getAllRankName(
+			){
+		JSONArray array = new JSONArray();
+		Set<Entry<Tier, String>> entrySet = Tiers.getAllAreas().entrySet();
+		for(Entry<Tier, String> entry:entrySet){
+			JSONObject obj = new JSONObject();
+			obj.put("tier", entry.getKey().getTier());
+			obj.put("queue", entry.getKey().getQueue());
+			obj.put("rank", entry.getKey().getRank());
+			obj.put("pic_url",entry.getValue());
+			array.add(obj);
+		}
+		return array;
+	}
+	
+	@RequestMapping("allAreaName")
+	@ResponseBody
+	public JSONArray getAllAreaName(
+			){
+		JSONArray allServerName = ServerNames.getAllServerName();
+		return allServerName;
+	}
+	
+	
 }

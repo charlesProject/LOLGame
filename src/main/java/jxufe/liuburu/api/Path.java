@@ -58,5 +58,10 @@ public class Path {
 	 */
 	public static final String GAME_DETAIL_INFO ="http://api.pallas.tgp.qq.com/core/get_battle_info";
 	
+	/**
+	 * 区域排行榜单
+	 * http://api.pallas.tgp.qq.com/core/get_score_rank?area_id=26&pnum=2
+	 */
+	public static final String TOP_RANK_LIST = "http://api.pallas.tgp.qq.com/core/get_score_rank";
 	
 }

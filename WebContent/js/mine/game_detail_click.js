@@ -3,7 +3,7 @@
  */
 function bindGameDetailClickEvent(game_id){
 	var area_id = $("[data-toggle=modal]").attr("id").split("_")[0];
-	console.log(game_id);
+	//console.log(game_id);
 	$(".lolGameDataHover").css("background","white");
 	$("#gameDetail_"+game_id).css("background","rgb(244, 240, 240)");
 	$.ajax({
@@ -88,7 +88,7 @@ function updateGameDetail(data){
 
 //更新用户英雄和玩家名称
 function updateUserChampionAndName(championName,qquin,championId){
-	console.log("玩家召唤师头像+召唤师名=="+championName+"+"+qquin);
+//	console.log("玩家召唤师头像+召唤师名=="+championName+"+"+qquin);
 	$("#detailChampionIcon_"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+championId+".png");
 	$("#detailUserName_"+qquin).html(championName);
 }
@@ -96,10 +96,10 @@ function updateUserChampionAndName(championName,qquin,championId){
 //更新战斗标签
 function updateUserBattleTagList(tagData,qquin){
 	$("detailHonor_"+qquin).html("");
-	console.log("战斗标签:");
+	//console.log("战斗标签:");
 	if(tagData.length!=0){
 		for(var i=0;i<tagData.length;i++){
-			console.log("标签-->"+tagData[i].tag_id);
+		//	console.log("标签-->"+tagData[i].tag_id);
 			$("#detailHonor_"+qquin).append(
 					"<div class='tag"+tagData[i].tag_id+"'></div>"
 			);
@@ -114,7 +114,7 @@ function updateMoneyAndKDA(
 		assists,//助攻
 		game_score,//评分
 		qquin){
-	console.log("金钱:"+gold_earned+",杀:"+champions_killed+",死:"+num_deaths+",助攻:"+assists+"，评分:"+game_score);
+	//console.log("金钱:"+gold_earned+",杀:"+champions_killed+",死:"+num_deaths+",助攻:"+assists+"，评分:"+game_score);
 	$("#detailEarnMoney_"+qquin).html(gold_earned);
 	$("#detailKDA_"+qquin).html(
 			"<p>"+champions_killed+"/"+num_deaths+"/"+assists+"</p>"+
@@ -123,7 +123,7 @@ function updateMoneyAndKDA(
 }
 //更新技能图标
 function updateSkillIcons(summon_spell1_id,summon_spell2_id,qquin){
-	console.log("召唤师技能:"+summon_spell1_id+"--"+summon_spell2_id);
+	//console.log("召唤师技能:"+summon_spell1_id+"--"+summon_spell2_id);
 	$("#detailSkill_"+qquin).html(
 			"		<img src='http://cdn.tgp.qq.com/lol/images/resources/summonability/"+summon_spell1_id+".png' class='lolItemIcon' />"+
 			"	<img src='http://cdn.tgp.qq.com/lol/images/resources/summonability/"+summon_spell2_id+".png' class='lolItemIcon' />"
@@ -131,7 +131,7 @@ function updateSkillIcons(summon_spell1_id,summon_spell2_id,qquin){
 }
 //更新装备栏
 function updateEquipmentIcons(item0,	item1,	item2,	item3,	item4,	item5,	item6,qquin){
-	console.log("装备:"+item0+" "+item1+" "+item2+" "+item3+" "+item4+" "+item5+" "+item6+" ");
+	//console.log("装备:"+item0+" "+item1+" "+item2+" "+item3+" "+item4+" "+item5+" "+item6+" ");
 	$("#detailEquipment_"+qquin).html(
 			"<img src='http://cdn.tgp.qq.com/lol/images/resources/items/"+item0+".png' class='lolItemIcon' />"+
 			"<img src='http://cdn.tgp.qq.com/lol/images/resources/items/"+item1+".png' class='lolItemIcon' />"+

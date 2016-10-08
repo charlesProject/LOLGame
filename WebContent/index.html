@@ -4,12 +4,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>LOL战绩查询--LBR</title>
- <link rel="icon" href="img/favicon-20161003093546151.ico" type="image/x-icon" />
- <link rel="shortcut icon" href="img/favicon-20161003093546151.ico" type="image/x-icon" />
+<link rel="icon" href="img/favicon-20161003093546151.ico"
+	type="image/x-icon" />
+<link rel="shortcut icon" href="img/favicon-20161003093546151.ico"
+	type="image/x-icon" />
 <!--bootstrap导入begin-->
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!--周免相关  -->
+<script type="text/javascript" src="http://lol.qq.com/biz/hero/free.js"></script>
 <!--bootstrap导入end-->
 <link rel="stylesheet" href="css/search.css" />
 <link rel="stylesheet" href="css/index.css" />
@@ -32,6 +36,7 @@
 <script type="text/javascript" src="js/mine/game_modal_page4.js"></script>
 <script type="text/javascript" src="js/mine/exp_champion_page.js"></script>
 <script type="text/javascript" src="js/mine/game_detail_click.js"></script>
+<script type="text/javascript" src="js/mine/game_rank_list.js"></script>
 
 <script type="text/javascript" src="js/index.js"></script>
 <!--导入统计图相关-->
@@ -47,6 +52,8 @@
 <script type="text/javascript"
 	src="http://cdn.tgp.qq.com/lol/conf/LOLChampion.7429f4c32e39abab6babc630b97f56e3.js"></script>
 </head>
+<!--英雄更新变动相关  -->
+<script type="text/javascript" src="http://cdn.tgp.qq.com/lol/conf/LOLHeroNewInfo.75f0132b86ff65ec8e87ffc4360f9623.js"></script>
 
 <body>
 	<div class="container">
@@ -126,7 +133,7 @@
 									<td id="basicRankLastBattle">------</td>
 								</tr>
 								<tr class="active">
-									<td >排位场次</td>
+									<td>排位场次</td>
 									<td id="basicPaiWeiTotalNum">------</td>
 								</tr>
 								<tr class="active">
@@ -158,7 +165,7 @@
 							<p id="topChampionName3">评分:-----</p>
 						</div>
 						<div class="zhaopaiItem">
-							<a type="button" class="" data-toggle="modal"
+							<a type="button" class="championExpMore" data-toggle="modal"
 								data-target="#myModal" id="">更多>></a>
 						</div>
 						<div style="clear: both;"></div>
@@ -220,7 +227,7 @@
 									data-toggle="dropdown">
 									比赛类型<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu" role="menu" >
+								<ul class="dropdown-menu" role="menu">
 									<li><a href="#" id="queryPaiWei">排位</a></li>
 									<li><a href="#" id="queryPiPei">匹配</a></li>
 									<li><a href="#" id="queryRenJi">自定义</a></li>
@@ -232,14 +239,18 @@
 									data-toggle="dropdown">
 									常用<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu" role="menu" >
-									<li id="expChampionMenue">
-											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
-											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
-											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
-											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
-											<img class="expBtnGroupItem" src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png" alt="" />
-									</li>
+								<ul class="dropdown-menu" role="menu">
+									<li id="expChampionMenue"><img class="expBtnGroupItem"
+										src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png"
+										alt="" /> <img class="expBtnGroupItem"
+										src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png"
+										alt="" /> <img class="expBtnGroupItem"
+										src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png"
+										alt="" /> <img class="expBtnGroupItem"
+										src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png"
+										alt="" /> <img class="expBtnGroupItem"
+										src="http://cdn.tgp.qq.com/lol/images/resources/champions/86.png"
+										alt="" /></li>
 								</ul>
 							</div>
 						</div>
@@ -273,7 +284,7 @@
 									<div class="searchResultBox">
 										<p id="gameName337559294" class="sumName">德玛西亚之力</p>
 										<p>
-											<span style="color:green;" >胜利</span>
+											<span style="color:green;">胜利</span>
 										</p>
 									</div>
 									<div class="searchResultBox thridBoxClass">
@@ -416,9 +427,15 @@
 						<!--其他拓展功能Begin-->
 						<div class="kitClass">
 							<ul>
-								<li><a href="#">本周周免</a></li>
-								<li><a href="#">国服排行</a></li>
-								<li><a href="#">新英雄预览</a></li>
+								<li><a type="button" class="rankListBtnClass"
+									data-toggle="modal" data-target="#freeChampionModal">本周周免</a>
+								</li>
+								<li><a type="button" class="rankListBtnClass"
+									data-toggle="modal" data-target="#rankModal" id=""
+									onclick="bindRankListClickEvent(3,1)">国服排行</a></li>
+								<li><a type="button" class="rankListBtnClass"
+									data-toggle="modal" data-target="#championUpdateModal">近期英雄公告</a>
+								</li>
 								<li><a href="#">联系作者</a></li>
 							</ul>
 						</div>
@@ -426,10 +443,12 @@
 						<div style="clear: both;"></div>
 						<!--其他拓展功能End-->
 						<!--胜利方begin-->
-						<h4 style="text-align: left; margin-bottom: -25px; " id="teamHead100">胜利方</h4>
+						<h4 style="text-align: left; margin-bottom: -25px; "
+							id="teamHead100">胜利方</h4>
 						<hr />
 						<table id="team100"
-							class="table table-striped table-bordered table-hover table-condensed" style="font-size:12px">
+							class="table table-striped table-bordered table-hover table-condensed"
+							style="font-size:12px">
 							<tr class="info">
 								<td>召唤师</td>
 								<td>昵称</td>
@@ -441,26 +460,22 @@
 							<tr class="active">
 								<td><img src="img/Zilean.png" class="lolIHeadtemIcon" /></td>
 								<td style="text-align: center;">
-								<p style="margin-bottom: 0px;">卡卡罗特444</p>
-								<div class="gameHonorBox">
-												<div class="tag1"></div>
-												<div class="tag10"></div>
-												<div class="tag11"></div>
-												<div class="tag12"></div>
-												<div class="tag10"></div>
-										</div>
+									<p style="margin-bottom: 0px;">卡卡罗特444</p>
+									<div class="gameHonorBox">
+										<div class="tag1"></div>
+										<div class="tag10"></div>
+										<div class="tag11"></div>
+										<div class="tag12"></div>
+										<div class="tag10"></div>
+									</div>
 								</td>
+								<td>6625</td>
 								<td>
-									6625
+									<p>24(1/1/7)</p>
+									<p style="color:red;">15.6</p>
 								</td>
-								<td>
-								<p>24(1/1/7)</p>
-								<p style="color:red;">15.6</p>
-								</td>
-								<td colspan="2">
-										<img src="img/4.jpg" class="lolItemIcon" />
-									<img src="img/14.jpg" class="lolItemIcon" />
-								</td>
+								<td colspan="2"><img src="img/4.jpg" class="lolItemIcon" />
+									<img src="img/14.jpg" class="lolItemIcon" /></td>
 								<td colspan="6"><img src="img/3009.png" class="lolItemIcon" />
 									<img src="img/3031.png" class="lolItemIcon" /> <img
 									src="img/3046.png" class="lolItemIcon" /> <img
@@ -473,11 +488,13 @@
 						<!--胜利方end-->
 
 						<!--失败方begin-->
-						<h4 style="text-align: left; margin-bottom: -25px; " id="teamHead200">失败方</h4>
+						<h4 style="text-align: left; margin-bottom: -25px; "
+							id="teamHead200">失败方</h4>
 
 						<hr />
 						<table id="team200"
-							class="table table-striped table-bordered table-hover table-condensed" style="font-size:12px">
+							class="table table-striped table-bordered table-hover table-condensed"
+							style="font-size:12px">
 							<tr class="info">
 								<td>召唤师</td>
 								<td>昵称</td>
@@ -489,25 +506,21 @@
 							<tr class="active">
 								<td><img src="img/Zilean.png" class="lolIHeadtemIcon" /></td>
 								<td style="text-align: center;">
-								<p style="margin-bottom: 0px;">卡卡罗特444</p>
-								<div class="gameHonorBox">
-												<div class="tag1"></div>
-												<div class="tag10"></div>
-												<div class="tag11"></div>
-												<div class="tag12"></div>
-										</div>
+									<p style="margin-bottom: 0px;">卡卡罗特444</p>
+									<div class="gameHonorBox">
+										<div class="tag1"></div>
+										<div class="tag10"></div>
+										<div class="tag11"></div>
+										<div class="tag12"></div>
+									</div>
 								</td>
+								<td>6625</td>
 								<td>
-									6625
+									<p>24(1/1/7)</p>
+									<p style="color:red;">15.6</p>
 								</td>
-								<td>
-								<p>24(1/1/7)</p>
-								<p style="color:red;">15.6</p>
-								</td>
-								<td colspan="2">
-										<img src="img/4.jpg" class="lolItemIcon" />
-									<img src="img/14.jpg" class="lolItemIcon" />
-								</td>
+								<td colspan="2"><img src="img/4.jpg" class="lolItemIcon" />
+									<img src="img/14.jpg" class="lolItemIcon" /></td>
 								<td colspan="6"><img src="img/3009.png" class="lolItemIcon" />
 									<img src="img/3031.png" class="lolItemIcon" /> <img
 									src="img/3046.png" class="lolItemIcon" /> <img
@@ -549,6 +562,7 @@
 			</div>
 		</div>
 	</div>
+	<!--1 模型弹出框begin -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -603,6 +617,140 @@
 			</div>
 		</div>
 	</div>
+	<!--1 模型弹出框 end-->
+	<!--2.模型弹出框begin  -->
+	<div class="modal fade" id="rankModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-lg">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h2>国服胖行榜</h2>
+				</div>
+				<div class="modal-body">
+					<table
+						class="table table-striped table-bordered table-hover table-condensed"
+						id="rankModalBody">
+						<thead style="text-align: center;">
+							<tr>
+								<th colspan="2">排名</th>
+								<th colspan="2">召唤师名称</th>
+								<th colspan="2">段位/等级</th>
+								<th colspan="2">胜点</th>
+								<th colspan="4">最近常用英雄</th>
+							</tr>
+
+						</thead>
+					</table>
+				</div>
+				<div id="topRankListBox">topRankListBox</div>
+				<div id="gameAreasBox">
+					<ul id="areaRankList">
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--2..模型弹出框end  -->
+
+	<!--3.第三个弹出框begin  -->
+	<div class="modal fade" id="freeChampionModal" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h2>
+						本周周免英雄<span id="freeUpdateTime"></span>
+					</h2>
+				</div>
+				<div class="modal-body" id="freeChampionClass">
+					<ul id="freeChampionUl">
+						<li>
+							<div>
+								<img
+									src="http://cdn.tgp.qq.com/lol/images/resources/champions/34.png"
+									alt="" />
+								<p>冰晶凤凰</p>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+				<div style="clear: both;"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--3.第三个弹出框end  -->
+	<!--3.第四个弹出框begin  -->
+	<div class="modal fade" id="championUpdateModal" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="background:#0B2C4A">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h2 style="color: red;">英雄近期改动</h2>
+				</div>
+				<div class="modal-body"  id="championUpdateModalBody">
+					<!--  英雄第一个更新开始-->
+				<!-- 	
+					<div class="oneHeroItem">
+						<div style="color: orange;margin-left: 15px;float: left;">
+							<img src="img/Nautilus.png" style="width: 60px;height: 60px; " />
+							<p>深海泰坦</p>
+						</div>
+						<ul style="float: left; margin-left: -33px;">
+							<li class="skillLiClass">
+								<p style="color:red;margin-left: -406px; margin-top: 15px;">近期改动</p>
+							</li>
+							<li class="skillLiClass">
+								<div class="skillItem">
+									<div class="skillItemKey">W</div>
+								</div>
+								<div style="float: left; margin-left: 15px;color: #3D5E7C;">
+									<h3 style="margin-left: -330px;color: #79A8CD;">星之灌注</h3>
+									<p>恐惧持续时间从 1/1.25/1.5/1.75/2秒 提高至 1.25/1.5/1.75/2/2.25秒</p>
+								</div>
+								<div style="clear: both;"></div>
+							</li>
+							<li class="skillLiClass">
+								<div class="skillItem">
+									<div class="skillItemKey">W</div>
+								</div>
+								<div style="float: left; margin-left: 15px;color: #3D5E7C;">
+									<h3 style="margin-left: -330px;color: #79A8CD;">星之灌注</h3>
+									<p>恐惧持续时间从 1/1.25/1.5/1.75/2秒 提高至 1.25/1.5/1.75/2/2.25秒</p>
+								</div>
+								<div style="clear: both;"></div>
+							</li>
+						</ul>
+					</div>
+					 -->
+					
+					<!--  英雄第一个更新开始-->
+				</div>
+				<div style="clear: both;"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--3.第四个弹出框end  -->
+
 </body>
 
 </html>

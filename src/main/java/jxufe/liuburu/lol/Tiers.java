@@ -13,7 +13,7 @@ import jxufe.liuburu.data.Tier;
  *
  */
 public class Tiers {
-	public static final Map<Tier, String> TIERS = new HashMap<Tier,String>();
+	private static final Map<Tier, String> TIERS = new HashMap<Tier,String>();
 	static{
 		/*其他网站的初略段位信息
 		 * TIERS.put(0, "http://img4.18183.duoku.com/lol/db/section_0.png");//最强王者
@@ -52,7 +52,7 @@ public class Tiers {
 		Tier tier_diamond_4 = new Tier(1, 3,"钻石VI");
 		Tier tier_diamond_5 = new Tier(1, 4,"钻石V");
 		Tier tier_master_1 = new Tier(6, 0,"超凡大师");// 超凡大师http://ossweb-img.qq.com/images/lol/img/rank/master_1.jpg
-		Tier tier_challenger = new Tier(0, 1,"最强王者");// 最强王者http://ossweb-img.qq.com/images/lol/img/rank/challenger.jpg
+		Tier tier_challenger = new Tier(0, 0,"最强王者");// 最强王者http://ossweb-img.qq.com/images/lol/img/rank/challenger.jpg
 		
 		TIERS.put(tier_none, "http://ossweb-img.qq.com/images/lol/img/rank/rank_none.jpg");//无段位
 		TIERS.put(tier_bronze_1, "http://ossweb-img.qq.com/images/lol/img/rank/bronze_1.jpg");//青铜
@@ -112,6 +112,10 @@ public class Tiers {
 			}
 		}
 		return null;
+	}
+	
+	public static Map<Tier, String> getAllAreas(){
+		return TIERS;
 	}
 	public static void main(String[] args) {
 		Tier tier_diamond_5 = new Tier(3, 5);

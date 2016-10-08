@@ -1,45 +1,48 @@
-.westBox {}
+.westBox {
+	
+}
 
-.centerBox {}
+.centerBox {
+	
+}
 
 .eastBox {
 	font-size: 15px;
 	font-family: "微软雅黑";
 }
-#pagePluginBox{
+
+#pagePluginBox {
 	margin-top: -15px;
 }
-.cursorClass{
+
+.cursorClass {
 	cursor: pointer;
 }
-.cursorClass:HOVER{
+
+.cursorClass:HOVER {
 	background-color: #F4F0F0;
-	
 }
 
-
-
 /*搜索样式begin*/
-
 .searchResultBox {
 	float: left;
 	margin-left: 5px;
-	width:43px;
+	width: 43px;
 }
 
-.thridBoxClass{
+.thridBoxClass {
 	width: 70px;
 }
 
-.searchResultBoxLast{
-	float:right	;
+.searchResultBoxLast {
+	float: right;
 	margin-right: 10px
 }
 
 .headIcon {
 	height: 40px;
 	width: 40px;
-	margin-left:10px;
+	margin-left: 10px;
 }
 
 .areaP {
@@ -55,9 +58,7 @@
 	width: 32px;
 }
 
-
 /*搜索样式end*/
-
 #gameList {
 	margin-top: 30px;
 }
@@ -66,16 +67,18 @@
 	/* height: 32px;
 	width: 32px; */
 	width: 45px;
-	height:45px;
+	height: 45px;
 }
-.lolItemIcon{
+
+.lolItemIcon {
 	height: 27px;
 	width: 20px;
-	float:left;
+	float: left;
 	margin-left: 5px;
 	margin-top: 13px;
 }
-.lolIHeadtemIcon{
+
+.lolIHeadtemIcon {
 	height: 37px;
 	width: 30px;
 }
@@ -89,16 +92,19 @@
 	height: 270px;
 	background: white;
 }
-.expBtnGroupItem{
+
+.expBtnGroupItem {
 	height: 40px;
 	width: 40px;
 	margin-left: 17px;
 	margin-bottom: 10px;
 	cursor: pointer;
 }
-.expBtnGroupItem:hover{
+
+.expBtnGroupItem:hover {
 	border: 1px solid red;
 }
+
 .areaLeavel {
 	float: left;
 }
@@ -134,7 +140,7 @@
 	height: 40px;
 }
 
-.queryResultBottom{
+.queryResultBottom {
 	display: display;
 }
 
@@ -149,7 +155,7 @@
 	float: left;
 	margin-left: 100px;
 	position: relative;
-	margin-top:37px;
+	margin-top: 37px;
 }
 
 .copyright li {
@@ -167,34 +173,88 @@
 	color: #666
 }
 /*页面底部版权信息end*/
-.kitClass ul li{
+.kitClass ul li {
 	list-style: none;
 	float: left;
 	margin-left: 10px;
 }
 
-.kitClass ul li a{
+.kitClass ul li a {
 	text-decoration: none;
 }
-.kitClass ul li a:hover{
+
+.kitClass ul li a:hover {
 	color: red;
 }
 
 /*游戏数据分页查询模块*/
-.gamerQueryResult{
+.gamerQueryResult {
 	font-size: 12px;
 }
 
-.lolGameDataHover{
+.lolGameDataHover {
 	cursor: pointer;
 }
 
 .lolGameDataHover:HOVER {
 	background-color: #F4F0F0;
 }
-.mvpIcon{
-width: 40px;
-height: 15px;
+
+.mvpIcon {
+	width: 40px;
+	height: 15px;
 }
 
+.rankChampionIcon {
+	width: 45px;
+	height: 45px;
+	float: left;
+}
 
+#gameAreasBox ul li {
+	list-style: none;
+	float: left;
+	margin-left: 25px;
+}
+
+.areaBtnClass {
+	margin-top: 8px;
+}
+
+#freeChampionClass ul li {
+	list-style: none;
+	float: left;
+	margin-left: 25px;
+	margin-top: 25px;
+}
+
+.areaBtnClass {
+	height: 100px;
+	width: 100px;
+}
+
+/*英雄改动模块相关css*/
+.skillItem {
+	width: 35px;
+	height: 35px;
+	margin-top: 18px;
+	background:url(http://ossweb-img.qq.com/images/lol/img/spell/Volley.png);
+	background-size: 100%;
+	float: left;
+}
+
+.skillItemKey {
+	opacity: 0.7;
+	margin-top: 19px;
+	margin-left: 20px;
+	width: 15px;
+	height: 15px;
+	background: black;
+	color: orange;
+	padding-top: 2px;
+}
+
+.skillLiClass {
+	list-style: none;
+	text-align: center;
+}

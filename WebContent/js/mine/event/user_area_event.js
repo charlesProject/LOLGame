@@ -6,7 +6,8 @@ function bindQueryResultEvent(){//查询结果点击事件
 	//	console.log("获得-->"+area_id+","+qquin);
 		basicAjax(qquin,area_id);//基本信息请求
 		topChampionAjax(qquin,area_id,3);//选择top3请求
-		$("[data-toggle='modal' ]").attr("id",area_id+"_"+qquin)
+		$("[data-toggle='modal' ]").attr("id",area_id+"_"+qquin);
+		$(".rankListBtnClass").attr("id","rankListBtn_"+area_id);
 		detailAjax(qquin,area_id);//详细信息请求
 		setBasicGameNumAjax();//设置匹配基本信息中的gameNum
 		var bt_num = 0;
@@ -34,7 +35,7 @@ function bindQueryResultEvent(){//查询结果点击事件
 //查询更多英雄事件
 function bindMoreChampioBtnEvent(ele){
 	$(ele).bind("click",function(){
-		console.log("查询更多-->"+$(this).attr("id"));
+	//		console.log("查询更多-->"+$(this).attr("id"));
 		var params = $(this).attr("id").split("_");
 		var area_id = params[0];
 		var qquin = params[1];
@@ -45,9 +46,9 @@ function bindMoreChampioBtnEvent(ele){
 function bindTowChampionQueryTypeEvent(latelyBtn,usedExpBtn){
 	$("#"+latelyBtn).bind("click",function(){
 		console.log("查询最近排序-->"+$("[data-toggle='modal' ]").attr("id"));
-		var params = $("[data-toggle='modal' ]").attr("id").split("_");
-		var area_id = params[0];
-		var qquin = params[1];
+		var qquin_areaid = $(".championExpMore").attr("id").split("_");
+		var qquin = qquin_areaid[1];
+		var area_id = qquin_areaid[0];
 		moreChampionAjax(qquin,area_id,1);
 		turnModalOptionBtnColor(latelyBtn,usedExpBtn);
 	});

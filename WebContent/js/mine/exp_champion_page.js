@@ -4,7 +4,7 @@
 var localChampionId = 0;
 function InitExpQueryBtn(){
 	//TODO同时还需要绑定事件监听函数
-	console.log("英雄分类查询操作");
+	//console.log("英雄分类查询操作");
 	var params = $("[data-toggle='modal' ]").attr("id").split("_");
 	var area_id = params[0];
 	var qquin = params[1];

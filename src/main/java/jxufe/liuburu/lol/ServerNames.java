@@ -2,6 +2,11 @@ package jxufe.liuburu.lol;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 public class ServerNames {
 	public static final Map<Integer, String> SERVER_MAP = new HashMap<Integer,String>();
@@ -34,5 +39,16 @@ public class ServerNames {
         SERVER_MAP.put(26,"巨龙之巢");
         SERVER_MAP.put(27,"皮城警备");
         SERVER_MAP.put(28,"比尔吉沃特");
+    }
+    public static JSONArray getAllServerName(){
+    	JSONArray array = new JSONArray();
+    	Set<Entry<Integer, String>> entrySet = SERVER_MAP.entrySet();
+    	for(Entry<Integer, String> entry:entrySet){
+    		JSONObject object = new JSONObject();
+    		object.put("area_id", entry.getKey());
+    		object.put("area_name", entry.getValue());
+    		array.add(object);
+    	}
+    	return array;
     }
 }

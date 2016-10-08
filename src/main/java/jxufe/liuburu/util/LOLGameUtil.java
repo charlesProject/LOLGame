@@ -409,6 +409,32 @@ public class LOLGameUtil {
 		return msg;
 	}
 
+	
+	/**
+	 * 排行榜
+	 * @param area_id
+	 * @param pnum
+	 * @return
+	 */
+	public static JSONObject getTopChinaRankList(int area_id,int pnum){
+
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpGet httpGet = new HttpGet(Path.TOP_RANK_LIST+"?area_id="+area_id+"&pnum="+pnum);
+		setlolToken(httpGet);
+		JSONObject result = null;
+		try {
+			CloseableHttpResponse response = httpclient.execute(httpGet);
+			result = JSONObject.parseObject(EntityUtils.toString(response.getEntity(),"UTF-8"));
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		String qquin = "2914207499";
 		int area_id = 26;
@@ -435,6 +461,7 @@ public class LOLGameUtil {
 		
 //		JSONArray championInfoByType = getChampionInfoByType(qquin, area_id, 5);
 //		System.out.println(championInfoByType);
-		System.out.println(queryMvpPlayer(3,1644095787));
+		//System.out.println(queryMvpPlayer(3,1644095787));
+		System.out.println(getTopChinaRankList(3,1));
 		}
 }
