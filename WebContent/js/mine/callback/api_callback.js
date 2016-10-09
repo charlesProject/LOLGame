@@ -214,7 +214,10 @@ function updateChampionLevelStar(ele,used_exp_value){
 //初始化游戏战斗数据
 function updateGamePlayData(data){
 //	console.log("战绩初始化");
-	//console.log(data)
+//	console.log(data)
+	if(data.data[0].total_num==0){
+		return;
+	}
 	var firstGameId =data.data[0].battle_list[0].game_id;
 	$("#lolGameDataList").html("");
 	var area_id =  $("[data-toggle='modal']").attr("id").split("_")[0];

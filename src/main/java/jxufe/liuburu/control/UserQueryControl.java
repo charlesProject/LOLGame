@@ -113,11 +113,14 @@ public class UserQueryControl {
 	@ResponseBody
 	public JSONArray getTopTreeChampion(
 			@RequestParam("qquin")String qquin,
-			@RequestParam("area_id")Integer area_id,
+			@RequestParam("area_id")String area_id,
 			@PathVariable("type")Integer type){
 		JSONArray resultArray=null;
+		if(area_id.equals("rankListBtn")){
+			return null;
+		}
 		try {
-			resultArray = LOLGameUtil.getChampionInfoByType(qquin, area_id,type);
+			resultArray = LOLGameUtil.getChampionInfoByType(qquin, Integer.parseInt(area_id),type);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

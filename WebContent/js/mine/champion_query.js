@@ -1,7 +1,7 @@
 var champions;
 //取远端英雄数据
 function define(map) {
-	console.log("define map");
+//	console.log("define map");
 	champions = map;
 }
 //根据champion_id查找英雄名称

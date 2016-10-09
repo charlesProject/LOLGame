@@ -447,7 +447,7 @@ public class LOLGameUtil {
 		//	System.out.println(getUserIcon(106));
 			//System.out.println(getUserTier(3, 1));
 			//System.out.println(getGameAreaName(26));
-	//		System.out.println(getUserBaseInfo("U11086490469144632336",26));
+			System.out.println(getUserBaseInfo("U11086490469144632336",26));
 	//		System.out.println(getUserBaseInfo("2914207499",26));
 		//	System.out.println(getUserDetailInfo("2914207499", 26));
 //			JSONArray resultArray  = getChampionInfoByType("2914207499", 26,1);
@@ -462,6 +462,6 @@ public class LOLGameUtil {
 //		JSONArray championInfoByType = getChampionInfoByType(qquin, area_id, 5);
 //		System.out.println(championInfoByType);
 		//System.out.println(queryMvpPlayer(3,1644095787));
-		System.out.println(getTopChinaRankList(3,1));
+		//System.out.println(getTopChinaRankList(3,1));
 		}
 }

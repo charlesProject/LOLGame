@@ -45,8 +45,8 @@ function RankListPaginationClick(new_page_index, pagination_container) {
 }
 
 function updateTopRankList(data){
-	console.log("排行榜数据更新");
-	console.log(data);
+//	console.log("排行榜数据更新");
+	//console.log(data);
 	$("#rankModalBody>tr").html("");
 	var rankList = data.data.rank_list;
 	for(var i=0;i<rankList.length;i++){
@@ -71,7 +71,7 @@ function updateTopRankList(data){
 	}
 }
 function updateRankUserIcon(qquin,icon_id){
-	console.log("用户图标id"+icon_id);
+	//console.log("用户图标id"+icon_id);
 	if(icon_id=="undefined"){
 		return;
 	}
@@ -124,5 +124,7 @@ function InitRankAreaMsg(){
 function bindAreaBtnClickEvent(area_id){
 	$("#rankAreaId"+area_id).bind("click",function(){
 		bindRankListClickEvent(area_id,1);
+		var areaName = $(this).html();
+		$("#guofuPaiHang").html("<font color='red'>"+areaName+"</font>"+"国服胖行榜");
 	});
 }
