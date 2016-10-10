@@ -336,7 +336,7 @@ public class LOLGameUtil {
 	 * @return
 	 * @throws UnsupportedEncodingException 
 	 */
-	public static JSONObject queryGameDetail(int area_id,int game_id) throws UnsupportedEncodingException{
+	public static JSONObject queryGameDetail(int area_id,String game_id) throws UnsupportedEncodingException{
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		String param = RequestUtil.queryGameDetail(area_id, game_id);
 		String encParam = URLEncoder.encode(param, "UTF-8");
@@ -361,7 +361,7 @@ public class LOLGameUtil {
 		return resultObject;
 	}
 	
-	public static JSONObject queryMvpPlayer(int area_id,int game_id) throws UnsupportedEncodingException{
+	public static JSONObject queryMvpPlayer(int area_id,String game_id) throws UnsupportedEncodingException{
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		String param = RequestUtil.queryGameDetail(area_id, game_id);
 		String encParam = URLEncoder.encode(param, "UTF-8");

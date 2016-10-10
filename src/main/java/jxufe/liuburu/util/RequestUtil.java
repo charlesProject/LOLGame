@@ -66,7 +66,7 @@ public class RequestUtil {
 		 * @param game_id
 		 * @return
 		 */
-		public static String queryGameDetail(int area_id, int game_id) {
+		public static String queryGameDetail(int area_id, String game_id) {
 			String param = "{\"area_id\":"+area_id+",\"game_id\":\""+game_id+"\"}";
 			return param;
 		}

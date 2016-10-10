@@ -215,11 +215,11 @@ function updateChampionLevelStar(ele,used_exp_value){
 function updateGamePlayData(data){
 //	console.log("战绩初始化");
 //	console.log(data)
+	$("#lolGameDataList").html("");
 	if(data.data[0].total_num==0){
 		return;
 	}
 	var firstGameId =data.data[0].battle_list[0].game_id;
-	$("#lolGameDataList").html("");
 	var area_id =  $("[data-toggle='modal']").attr("id").split("_")[0];
 	for(var i=0;i<data.data[0].battle_list.length;i++){
 		var gameTime = data.data[0].battle_list[i].battle_time;
@@ -266,10 +266,12 @@ function checkMvp(area_id,game_id){
 		},
 		success: function(data) {
 			//判断移出mvp的条件，删除mvp标志
-//			console.log("判断移出mvp的条件，删除mvp标志");
+	//	console.log("判断移出mvp的条件，删除mvp标志");
 //			console.log(data);
-//			var curQquin= $("[data-toggle='modal']").attr("id").split("_")[1];
-			if(data.mvp_qquin==data.ukey&&data.mvp_score!=0){
+			var curQquin= $("[data-toggle='modal']").attr("id").split("_")[1];
+			//console.log(data);
+		//	console.log("curQquin="+curQquin);
+			if(data.mvp_qquin==curQquin&&data.mvp_score!=0){
 				$("#mvp"+game_id).html("<img class='mvpIcon' src='img/honor/mvp.png' alt='mvp'>");
 			}
 

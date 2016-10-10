@@ -64,7 +64,7 @@ public class GameQueryControl {
 	@ResponseBody
 	public JSONObject  queryGameDetail(
 			@RequestParam("area_id")Integer area_id,
-			@RequestParam("game_id")Integer game_id){
+			@RequestParam("game_id")String game_id){
 		JSONObject result = null;
 		try {
 			result = LOLGameUtil.queryGameDetail(area_id, game_id);
@@ -79,7 +79,7 @@ public class GameQueryControl {
 	@ResponseBody
 	public JSONObject checkWhetherMvpPlayer(
 			@RequestParam("area_id")Integer area_id,
-			@RequestParam("game_id")Integer game_id
+			@RequestParam("game_id")String game_id
 			){
 		JSONObject result= null;
 		try {
