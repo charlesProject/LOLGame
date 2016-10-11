@@ -45,7 +45,7 @@ function bindMoreChampioBtnEvent(ele){
 //绑定英雄 “熟练度” 和 “最近使用”事件监听
 function bindTowChampionQueryTypeEvent(latelyBtn,usedExpBtn){
 	$("#"+latelyBtn).bind("click",function(){
-		console.log("查询最近排序-->"+$("[data-toggle='modal' ]").attr("id"));
+	//	console.log("查询最近排序-->"+$("[data-toggle='modal' ]").attr("id"));
 		var qquin_areaid = $(".championExpMore").attr("id").split("_");
 		var qquin = qquin_areaid[1];
 		var area_id = qquin_areaid[0];
@@ -54,7 +54,7 @@ function bindTowChampionQueryTypeEvent(latelyBtn,usedExpBtn){
 	});
 	
 	$("#"+usedExpBtn).bind("click",function(){
-		console.log("查询经验排序-->"+$("[data-toggle='modal' ]").attr("id"));
+	//	console.log("查询经验排序-->"+$("[data-toggle='modal' ]").attr("id"));
 		var params = $("[data-toggle='modal' ]").attr("id").split("_");
 		var area_id = params[0];
 		var qquin = params[1];

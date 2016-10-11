@@ -57,11 +57,11 @@ function updateTopRankList(data){
 				"<td colspan='2'><img id='rankIcon"+rankList[i].qquin+"' src='img/section_255.png' class='championIcon' style='float:left;'/><span id='rankName"+rankList[i].qquin+"'>最强王者</span></td>"+
 				"<td colspan='2'>"+rankList[i].win_point+"</td>"+
 				"<td colspan='4'>"+
-				"	<img id='rankChampion1"+rankList[i].qquin+"' src='img/Nautilus.png' class='championIcon' />"+
-				"	<img  id='rankChampion2"+rankList[i].qquin+"' src='img/Nautilus.png' class='championIcon' />"+
-				"	<img id='rankChampion3"+rankList[i].qquin+"' src='img/Nautilus.png' class='championIcon' />"+
-				"	<img id='rankChampion4"+rankList[i].qquin+"' src='img/Nautilus.png' class='championIcon' />"+
-				"	<img id='rankChampion5"+rankList[i].qquin+"' src='img/Nautilus.png' class='championIcon' />"+
+				"	<img id='rankChampion1"+rankList[i].qquin+"' src='img/default.png' class='championIcon' />"+
+				"	<img  id='rankChampion2"+rankList[i].qquin+"' src='img/default.png' class='championIcon' />"+
+				"	<img id='rankChampion3"+rankList[i].qquin+"' src='img/default.png' class='championIcon' />"+
+				"	<img id='rankChampion4"+rankList[i].qquin+"' src='img/default.png' class='championIcon' />"+
+				"	<img id='rankChampion5"+rankList[i].qquin+"' src='img/default.png' class='championIcon' />"+
 				"</td>"+
 			"</tr>"
 		);
@@ -79,11 +79,9 @@ function updateRankUserIcon(qquin,icon_id){
 }
 
 function updateRankChampionIcon(qquin,champions){
-	$("#rankChampion1"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+champions[0]+".png");
-	$("#rankChampion2"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+champions[1]+".png");
-	$("#rankChampion3"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+champions[2]+".png");
-	$("#rankChampion4"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+champions[3]+".png");
-	$("#rankChampion5"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+champions[4]+".png");
+	for(var i=0;i<champions.length;i++){
+		$("#rankChampion"+(i+1)+""+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+champions[i]+".png");
+	}
 }
 
 function updateRankIconAndName(qquin,tier,queue){

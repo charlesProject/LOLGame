@@ -30,7 +30,7 @@ function initDaLuanDouPagePlugin(qquin,area_id,bt_num,bt_list,champion_id,offset
 }
 //分页回调函数（战绩查询分页操作）
 function daLuanDouPaginationClick(new_page_index, pagination_container) {
-	console.log("defaultPaginationClick分页-->"+new_page_index);
+	//console.log("defaultPaginationClick分页-->"+new_page_index);
 	var qquin_areaid = $("[data-toggle='modal']").attr("id").split("_");
 	var qquin = qquin_areaid[1];
 	var area_id = qquin_areaid[0];

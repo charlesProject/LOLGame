@@ -36,31 +36,31 @@ function updateGameDetail(data){
 		}
 		gameDetailBox.append(
 				"<tr class='active'>"+
-				"<td><img id='detailChampionIcon_"+gamer_records[i].qquin+"' src='img/Zilean.png' class='lolIHeadtemIcon' /></td>"+
+				"<td><img id='detailChampionIcon_"+gamer_records[i].qquin+"' src='img/default.png' class='lolIHeadtemIcon' /></td>"+
 				"<td style='text-align: center;'>"+
-				"<p id='detailUserName_"+gamer_records[i].qquin+"' style='margin-bottom: 0px;'>卡卡罗特444</p>"+
+				"<p id='detailUserName_"+gamer_records[i].qquin+"' style='margin-bottom: 0px;'>*******</p>"+
 				"<div id='detailHonor_"+gamer_records[i].qquin+"' class='gameHonorBox'>"+
 				"		</div>"+
 				"</td'>"+
 				"<td id='detailEarnMoney_"+gamer_records[i].qquin+"'>"+
-				"	6625"+
+				"	0000"+
 				"</td>"+
 				"<td id='detailKDA_"+gamer_records[i].qquin+"'>"+
-				"<p>24(1/1/7)</p>"+
-				"<p id = 'detailScore_"+gamer_records[i].qquin+"' style='color:red;'>15.6</p>"+
+				"<p>00(0/0/0)</p>"+
+				"<p id = 'detailScore_"+gamer_records[i].qquin+"' style='color:red;'>00.0</p>"+
 				"</td>"+
 				"<td id='detailSkill_"+gamer_records[i].qquin+"' colspan='2'>"+
-				"		<img src='img/4.jpg' class='lolItemIcon' />"+
-				"	<img src='img/14.jpg' class='lolItemIcon' />"+
+				"		<img src='img/default.png' class='lolItemIcon' />"+
+				"	<img src='img/default.png' class='lolItemIcon' />"+
 				"</td>"+
 				"<td id='detailEquipment_"+gamer_records[i].qquin+"' colspan='6'>" +
-				"<img src='img/3009.png' class='lolItemIcon' />"+
-				"<img src='img/3031.png' class='lolItemIcon' /> <img"+
-				"	src='img/3046.png' class='lolItemIcon' /> <img"+
-				"	src='img/3065.png' class='lolItemIcon' /> <img"+
-				"	src='img/3072.png' class='lolItemIcon' /> <img"+
-				"	src='img/3009.png' class='lolItemIcon' /> <img"+
-				"	src='img/3340.png' class='lolItemIcon' /></td>"+
+				"<img src='img/default.png' class='lolItemIcon' />"+
+				"<img src='img/default.png' class='lolItemIcon' /> <img"+
+				"	src='img/default.png' class='lolItemIcon' /> <img"+
+				"	src='img/default.png' class='lolItemIcon' /> <img"+
+				"	src='img/default.png' class='lolItemIcon' /> <img"+
+				"	src='img/default.png' class='lolItemIcon' /> <img"+
+				"	src='img/default.png' class='lolItemIcon' /></td>"+
 			"</tr>"
 		);
 		updateUserChampionAndName(gamer_records[i].name,gamer_records[i].qquin,gamer_records[i].champion_id);//更新用户英雄和玩家名称
@@ -89,6 +89,10 @@ function updateGameDetail(data){
 //更新用户英雄和玩家名称
 function updateUserChampionAndName(championName,qquin,championId){
 //	console.log("玩家召唤师头像+召唤师名=="+championName+"+"+qquin);
+	if(championId=="65535"){
+		$("#detailChampionIcon_"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/default.png");
+		return;
+	}
 	$("#detailChampionIcon_"+qquin).attr("src","http://cdn.tgp.qq.com/lol/images/resources/champions/"+championId+".png");
 	$("#detailUserName_"+qquin).html(championName);
 }
@@ -124,6 +128,13 @@ function updateMoneyAndKDA(
 //更新技能图标
 function updateSkillIcons(summon_spell1_id,summon_spell2_id,qquin){
 	//console.log("召唤师技能:"+summon_spell1_id+"--"+summon_spell2_id);
+	if(summon_spell1_id=="65535"||summon_spell2_id=="65535"){
+		$("#detailSkill_"+qquin).html(
+				"		<img src='img/default.png' class='lolItemIcon' />"+
+				"	<img src='img/default.png' class='lolItemIcon' />"
+		);
+		return;
+	}
 	$("#detailSkill_"+qquin).html(
 			"		<img src='http://cdn.tgp.qq.com/lol/images/resources/summonability/"+summon_spell1_id+".png' class='lolItemIcon' />"+
 			"	<img src='http://cdn.tgp.qq.com/lol/images/resources/summonability/"+summon_spell2_id+".png' class='lolItemIcon' />"

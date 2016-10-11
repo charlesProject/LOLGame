@@ -6,14 +6,14 @@
 function getGameModalName(game_modal){
 	var typeData = {
 			type: {
-				1: "自定义",
+				1: "匹配",
 				2: "新手关",
-				3: "匹配赛",
+				3: "统治战场",
 				4: "排位赛",
 				5: "战队赛",
 				6: "大乱斗",
 				7: "人机",
-				8: "统治战场",
+				8: "自定义",
 				9: "大对决",
 				11: "克隆赛",
 				14: "无限火力",
@@ -25,7 +25,8 @@ function getGameModalName(game_modal){
 				20: "互选征召",
 				21: "佣兵战",
 				22: "新统治",
-				23: "枢纽攻防"
+				23: "枢纽攻防",
+				24:"无限大乱斗"
 			}
 	}
 	return typeData.type[game_modal];

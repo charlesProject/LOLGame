@@ -54,8 +54,8 @@ function paiWeiPaginationClick(new_page_index, pagination_container) {
 			"mvp_flag":mvp_flag
 		},
 		success: function(data) {
-			console.log("排位数据：");
-			console.log(data);
+	//		console.log("排位数据：");
+	//		console.log(data);
 			updateGamePlayData(data);
 		}
 	});

@@ -228,7 +228,7 @@ function updateGamePlayData(data){
 				"<li id='gameDetail_"+data.data[0].battle_list[i].game_id+"'  class='list-group-item lolGameDataHover' onclick='bindGameDetailClickEvent("+data.data[0].battle_list[i].game_id+");'>"+
 				"<div>"+
 				"	<div class='searchResultBox'>"+
-				"		<img id='gameIcon_"+data.data[0].battle_list[i].game_id+"' src='img/Nautilus.png' class='championIcon img-circle' />"+
+				"		<img id='gameIcon_"+data.data[0].battle_list[i].game_id+"' src='img/default.png' class='championIcon img-circle' />"+
 				"	</div>"+
 				"	<div class='searchResultBox'>"+
 				"		<p id='gameName_"+data.data[0].battle_list[i].game_id+"' class='sumName'>深海泰坦</p>"+
